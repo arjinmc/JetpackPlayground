@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">JetpackPlayground</string>
+
+    <string name="architecture">Architecture</string>
+    <string name="arch_room">Room</string>
+    <string name="arch_live_data">LiveData</string>
+    <string name="arch_data_binding">Data Binding</string>
+    <string name="arch_lifecycles">Lifecycles</string>
+    <string name="arch_paging">Paging</string>
+    <string name="arch_view_model">ViewModel</string>
+    <string name="arch_worker_manager">WorkerManager</string>
+
+    <string name="ui">UI</string>
+    <string name="ui_animation_and_transitions">Animation &amp; Transitions</string>
+    <string name="ui_emoji">Emoji</string>
+    <string name="ui_palette">Palette</string>
+
+    <string name="behavior">Behavior</string>
+    <string name="behavior_download_manager">Download Manager</string>
+    <string name="behavior_media_and_playback">Media  &amp; Playback</string>
+    <string name="behavior_permissions">Permissions</string>
+    <string name="behavior_notifications">Notifications</string>
+    <string name="behavior_sharing">Sharing</string>
+    <string name="behavior_slices">Slices</string>
+
+    <string-array name="options">
+        <item>@string/architecture</item>
+        <item>@string/arch_room</item>
+        <item>@string/arch_live_data</item>
+        <item>@string/arch_data_binding</item>
+        <item>@string/arch_lifecycles</item>
+        <item>@string/arch_paging</item>
+        <item>@string/arch_view_model</item>
+        <item>@string/arch_worker_manager</item>
+
+        <item>@string/ui</item>
+        <item>@string/ui_animation_and_transitions</item>
+        <item>@string/ui_emoji</item>
+        <item>@string/ui_palette</item>
+
+        <item>@string/behavior</item>
+        <item>@string/behavior_download_manager</item>
+        <item>@string/behavior_media_and_playback</item>
+        <item>@string/behavior_permissions</item>
+        <item>@string/behavior_notifications</item>
+        <item>@string/behavior_sharing</item>
+        <item>@string/behavior_slices</item>
+    </string-array>
+</resources>
