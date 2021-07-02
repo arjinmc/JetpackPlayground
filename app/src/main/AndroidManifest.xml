@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".architecture.RoomActivity"/>
-        <activity android:name=".architecture.DataStoreActivity"/>
+        <activity android:name=".architecture.RoomActivity" />
+        <activity android:name=".architecture.ViewBindingActivity" />
+        <activity android:name=".architecture.DataStoreActivity" />
     </application>
 
 </manifest>

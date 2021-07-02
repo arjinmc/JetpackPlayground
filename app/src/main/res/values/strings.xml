@@ -8,6 +8,7 @@
     <string name="arch_lifecycles">Lifecycles</string>
     <string name="arch_paging">Paging</string>
     <string name="arch_view_model">ViewModel</string>
+    <string name="arch_view_binding">ViewBinding</string>
     <string name="arch_worker_manager">WorkerManager</string>
     <string name="arch_data_store">DataStore</string>
 
@@ -32,6 +33,7 @@
         <item>@string/arch_lifecycles</item>
         <item>@string/arch_paging</item>
         <item>@string/arch_view_model</item>
+        <item>@string/arch_view_binding</item>
         <item>@string/arch_worker_manager</item>
         <item>@string/arch_data_store</item>
 

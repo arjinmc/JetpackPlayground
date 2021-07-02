@@ -11,6 +11,7 @@ import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.RoomActivity
+import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 import com.arjinmc.recyclerviewdecoration.RecyclerViewStickyHeadItemDecoration
@@ -86,6 +87,8 @@ class MainActivity : BasicActivity() {
         when (optionName) {
             getString(R.string.arch_room) ->
                 startActivity(RoomActivity::class.java)
+            getString(R.string.arch_view_binding) ->
+                startActivity(ViewBindingActivity::class.java)
             getString(R.string.arch_data_store) ->
                 startActivity(DataStoreActivity::class.java)
         }
