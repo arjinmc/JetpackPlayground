@@ -3,22 +3,23 @@ package com.arjinmc.jetpackplayground
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewAdapter
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewMultipleTypeProcessor
-import com.arjinmc.expandrecyclerview.adapter.RecyclerViewSingleTypeProcessor
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
+import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.RoomActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 import com.arjinmc.recyclerviewdecoration.RecyclerViewStickyHeadItemDecoration
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.reflect.KClass
 
+/**
+ *
+ * Created by Eminem Lo on 21/5/2021.
+ * email: arjinmc@hotmail.com
+ */
 class MainActivity : BasicActivity() {
 
     private lateinit var mRvOptions: RecyclerView
@@ -27,7 +28,7 @@ class MainActivity : BasicActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.act_main)
         init()
     }
 
@@ -85,6 +86,8 @@ class MainActivity : BasicActivity() {
         when (optionName) {
             getString(R.string.arch_room) ->
                 startActivity(RoomActivity::class.java)
+            getString(R.string.arch_data_store) ->
+                startActivity(DataStoreActivity::class.java)
         }
     }
 
