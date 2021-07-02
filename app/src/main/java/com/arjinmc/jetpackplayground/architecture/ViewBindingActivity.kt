@@ -10,11 +10,10 @@ import com.arjinmc.jetpackplayground.databinding.ActViewBindingBinding
  */
 class ViewBindingActivity : BasicActivity() {
 
-    private lateinit var binding: ActViewBindingBinding
+    private val binding by lazy { ActViewBindingBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActViewBindingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
     }
