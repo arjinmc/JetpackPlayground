@@ -1,7 +1,9 @@
 package com.arjinmc.jetpackplayground.basic
 
 import android.content.Context
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 
 /**
  * Basic activity
@@ -19,4 +21,10 @@ abstract class BasicActivity : AppCompatActivity(), BasicActivityInterface {
         initListener()
         initData()
     }
+
+    inline fun <T : ViewBinding> viewBinding(
+        crossinline bindingInflater: (LayoutInflater) -> T) =
+        lazy(LazyThreadSafetyMode.NONE) {
+            bindingInflater.invoke(layoutInflater)
+        }
 }

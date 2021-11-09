@@ -1,6 +1,5 @@
 package com.arjinmc.jetpackplayground
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
@@ -13,6 +12,9 @@ import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
+import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
+import com.arjinmc.jetpackplayground.ui.motionlayout.MotionLayoutActivity
+import com.arjinmc.jetpackplayground.util.IntentUtil
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 import com.arjinmc.recyclerviewdecoration.RecyclerViewStickyHeadItemDecoration
 
@@ -91,12 +93,14 @@ class MainActivity : BasicActivity() {
                 startActivity(ViewBindingActivity::class.java)
             getString(R.string.arch_data_store) ->
                 startActivity(DataStoreActivity::class.java)
+            getString(R.string.ui_constrain_layout) ->
+                startActivity(ConstrainLayoutActivity::class.java)
+            getString(R.string.ui_motion_layout) ->
+                startActivity(MotionLayoutActivity::class.java)
         }
     }
 
     private fun startActivity(clz: Class<*>) {
-        startActivity(
-            Intent(getContext(), clz)
-        )
+        IntentUtil.startActivity(getContext(), clz)
     }
 }

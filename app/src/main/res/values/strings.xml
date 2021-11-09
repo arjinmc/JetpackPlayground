@@ -16,6 +16,8 @@
     <string name="ui_animation_and_transitions">Animation &amp; Transitions</string>
     <string name="ui_emoji">Emoji</string>
     <string name="ui_palette">Palette</string>
+    <string name="ui_constrain_layout">ConstrainLayout</string>
+    <string name="ui_motion_layout">MotionLayout</string>
 
     <string name="behavior">Behavior</string>
     <string name="behavior_download_manager">Download Manager</string>
@@ -41,6 +43,8 @@
         <item>@string/ui_animation_and_transitions</item>
         <item>@string/ui_emoji</item>
         <item>@string/ui_palette</item>
+        <item>@string/ui_constrain_layout</item>
+        <item>@string/ui_motion_layout</item>
 
         <item>@string/behavior</item>
         <item>@string/behavior_download_manager</item>
@@ -50,4 +54,18 @@
         <item>@string/behavior_sharing</item>
         <item>@string/behavior_slices</item>
     </string-array>
+
+    <string name="constrain_layout_basic">Basic</string>
+    <string name="constrain_layout_always_at_the_right">Always at the right</string>
+    <string name="constrain_layout_chain_style">Chain style</string>
+    <string name="constrain_layout_constrain_width">Constrain width</string>
+    <string name="constrain_layout_bias">Bias</string>
+    <string name="constrain_layout_ratios">Ratios</string>
+    <string name="constrain_layout_guideline">Guideline</string>
+    <string name="constrain_layout_barrier">Barrier</string>
+    <string name="constrain_layout_baseline">Baseline</string>
+    <string name="constrain_layout_group">Group</string>
+    <string name="constrain_layout_circular_positioning">Circular positioning</string>
+    <string name="constrain_layout_flow">Flow</string>
+    <string name="constrain_layout_constrain_set">ConstrainSet</string>
 </resources>
