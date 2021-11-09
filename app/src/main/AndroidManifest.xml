@@ -37,6 +37,9 @@
         <activity android:name=".ui.constrainlayout.ConstrainLayoutGuidelineActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutBarrierActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutGroupActivity" />
+        <activity android:name=".ui.constrainlayout.ConstrainLayoutBaselineActivity" />
+        <activity android:name=".ui.constrainlayout.ConstrainLayoutFlowActivity" />
+        <activity android:name=".ui.constrainlayout.ConstrainLayoutConstrainSetActivity" />
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
     </application>

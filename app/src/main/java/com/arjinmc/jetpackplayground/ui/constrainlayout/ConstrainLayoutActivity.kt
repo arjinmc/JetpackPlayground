@@ -111,7 +111,10 @@ class ConstrainLayoutActivity : BasicActivity() {
                     getContext(),
                     ConstrainLayoutBarrierActivity::class.java
                 )
-//                R.string.constrain_layout_baseline,
+                R.string.constrain_layout_baseline -> IntentUtil.startActivity(
+                    getContext(),
+                    ConstrainLayoutBaselineActivity::class.java
+                )
                 R.string.constrain_layout_group -> IntentUtil.startActivity(
                     getContext(),
                     ConstrainLayoutGroupActivity::class.java
@@ -120,12 +123,17 @@ class ConstrainLayoutActivity : BasicActivity() {
                     getContext(),
                     ConstrainLayoutCircularPositionActivity::class.java
                 )
-//                R.string.constrain_layout_flow,
-//                R.string.constrain_layout_constrain_set ->
+                R.string.constrain_layout_flow -> IntentUtil.startActivity(
+                    getContext(),
+                    ConstrainLayoutFlowActivity::class.java
+                )
+                R.string.constrain_layout_constrain_set -> IntentUtil.startActivity(
+                    getContext(),
+                    ConstrainLayoutConstrainSetActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter
     }
-
 
 }

@@ -3,6 +3,7 @@ package com.arjinmc.jetpackplayground.ui.constrainlayout
 import android.os.Bundle
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutBasicBinding
+import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutConstrainSetBinding
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutConstrainWidthBinding
 
 /**
@@ -11,7 +12,7 @@ import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutConstrainWidt
  */
 class ConstrainLayoutConstrainSetActivity : BasicActivity() {
 
-    private val binding by viewBinding(ActConstrainLayoutConstrainWidthBinding::inflate)
+    private val binding by viewBinding(ActConstrainLayoutConstrainSetBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
