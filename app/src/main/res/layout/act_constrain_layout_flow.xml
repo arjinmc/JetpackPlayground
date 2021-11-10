@@ -1,6 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/block_title"
+        android:padding="10dp"
+        android:text="Style:  Flow"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rg_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="NONE" />
+
+        <RadioButton
+            android:id="@+id/rb_aligned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="ALIGNED" />
+
+        <RadioButton
+            android:id="@+id/rb_chain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="CHAIN" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 1" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_2"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 2"
+            app:layout_constraintStart_toEndOf="@id/tv_1"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 3"
+            app:layout_constraintStart_toEndOf="@id/tv_2"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_1, tv_2, tv_3"
+            app:flow_firstHorizontalStyle="spread"
+            app:flow_verticalGap="20dp"
+            app:flow_wrapMode="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/block_title"
+        android:padding="10dp"
+        android:text="Style:  CircularFlow"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_2"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 5"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/block_1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="text 6"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.constraintlayout.helper.widget.CircularFlow
+            android:id="@+id/flow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:circularflow_angles="45,135"
+            app:circularflow_defaultAngle="135"
+            app:circularflow_defaultRadius="50dp"
+            app:circularflow_radiusInDP="90,180"
+            app:circularflow_viewCenter="@id/tv_4"
+            app:constraint_referenced_ids="tv_5, tv_6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
