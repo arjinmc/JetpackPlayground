@@ -42,6 +42,8 @@
         <activity android:name=".ui.constrainlayout.ConstrainLayoutConstrainSetActivity" />
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
+
+        <activity android:name=".material.RangeSliderActivity" />
     </application>
 
 </manifest>

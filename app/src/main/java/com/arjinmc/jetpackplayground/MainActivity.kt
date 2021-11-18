@@ -12,6 +12,7 @@ import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
+import com.arjinmc.jetpackplayground.material.RangeSliderActivity
 import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
 import com.arjinmc.jetpackplayground.ui.motionlayout.MotionLayoutActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
@@ -77,6 +78,7 @@ class MainActivity : BasicActivity() {
                         getString(R.string.architecture) -> return 0
                         getString(R.string.ui) -> return 0
                         getString(R.string.behavior) -> return 0
+                        getString(R.string.material) -> return 0
                     }
                     return 1
                 }
@@ -97,6 +99,8 @@ class MainActivity : BasicActivity() {
                 startActivity(ConstrainLayoutActivity::class.java)
             getString(R.string.ui_motion_layout) ->
                 startActivity(MotionLayoutActivity::class.java)
+            getString(R.string.material_range_slider) ->
+                startActivity(RangeSliderActivity::class.java)
         }
     }
 

@@ -27,6 +27,9 @@
     <string name="behavior_sharing">Sharing</string>
     <string name="behavior_slices">Slices</string>
 
+    <string name="material">Material</string>
+    <string name="material_range_slider">RangeSlider</string>
+
     <string-array name="options">
         <item>@string/architecture</item>
         <item>@string/arch_room</item>
@@ -53,6 +56,9 @@
         <item>@string/behavior_notifications</item>
         <item>@string/behavior_sharing</item>
         <item>@string/behavior_slices</item>
+
+        <item>@string/material</item>
+        <item>@string/material_range_slider</item>
     </string-array>
 
     <string name="constrain_layout_basic">Basic</string>
@@ -68,4 +74,10 @@
     <string name="constrain_layout_circular_positioning">Circular positioning</string>
     <string name="constrain_layout_flow">Flow</string>
     <string name="constrain_layout_constrain_set">ConstrainSet</string>
+
+
+    <array name="range_slider_values" >
+        <item>25</item>
+        <item>75</item>
+    </array>
 </resources>
