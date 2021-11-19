@@ -44,6 +44,7 @@
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
 
         <activity android:name=".material.RangeSliderActivity" />
+        <activity android:name=".material.textinputlayout.TextInputLayoutActivity" />
     </application>
 
 </manifest>

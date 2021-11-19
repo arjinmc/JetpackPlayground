@@ -29,6 +29,7 @@
 
     <string name="material">Material</string>
     <string name="material_range_slider">RangeSlider</string>
+    <string name="material_text_input_layout">TextInputLayout</string>
 
     <string-array name="options">
         <item>@string/architecture</item>
@@ -59,6 +60,7 @@
 
         <item>@string/material</item>
         <item>@string/material_range_slider</item>
+        <item>@string/material_text_input_layout</item>
     </string-array>
 
     <string name="constrain_layout_basic">Basic</string>

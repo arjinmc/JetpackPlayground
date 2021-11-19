@@ -13,6 +13,7 @@ import com.arjinmc.jetpackplayground.architecture.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
+import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
 import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
 import com.arjinmc.jetpackplayground.ui.motionlayout.MotionLayoutActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
@@ -101,6 +102,8 @@ class MainActivity : BasicActivity() {
                 startActivity(MotionLayoutActivity::class.java)
             getString(R.string.material_range_slider) ->
                 startActivity(RangeSliderActivity::class.java)
+            getString(R.string.material_text_input_layout) ->
+                startActivity(TextInputLayoutActivity::class.java)
         }
     }
 
