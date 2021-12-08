@@ -9,7 +9,7 @@ import com.arjinmc.expandrecyclerview.adapter.RecyclerViewMultipleTypeProcessor
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
-import com.arjinmc.jetpackplayground.architecture.RoomActivity
+import com.arjinmc.jetpackplayground.architecture.room.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
