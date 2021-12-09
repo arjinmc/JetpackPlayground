@@ -24,7 +24,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".architecture.room.RoomActivity" />
+        <activity android:name=".architecture.room.RoomActivity"/>
+        <activity android:name=".architecture.room.RoomDefaultActivity" />
+
         <activity android:name=".architecture.ViewBindingActivity" />
         <activity android:name=".architecture.DataStoreActivity" />
 

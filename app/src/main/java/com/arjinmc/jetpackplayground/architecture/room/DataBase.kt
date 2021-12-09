@@ -10,6 +10,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 /**
  * Created by Eminem Lo on 12/2/21
  * email: arjinmc@hotmail.com
+ * detail: https://developer.android.com/training/data-storage/room
  */
 
 //@Database(entities = [RoomDataBean::class], version = 2)
@@ -27,7 +28,7 @@ abstract class DataBase : RoomDatabase() {
             if (INSTANCE == null) {
                 INSTANCE =
                     Room.databaseBuilder(context.applicationContext, DataBase::class.java, DB_NAME)
-                            //use when db version>1
+                        //use when db version>1
 //                        .addMigrations(MIGRATION_VERSION_2)
                         .build()
 

@@ -5,6 +5,7 @@ import androidx.room.*
 /**
  * Created by Eminem Lo on 12/7/21
  * email: arjinmc@hotmail.com
+ * callback detail:https://developer.android.com/training/data-storage/room/async-queries#kotlin
  */
 @Dao
 interface RoomDataDao {
