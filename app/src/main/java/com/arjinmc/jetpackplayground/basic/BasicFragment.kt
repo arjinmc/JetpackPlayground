@@ -10,6 +10,12 @@ import androidx.viewbinding.ViewBinding
  */
 abstract class BasicFragment : Fragment(), BasicActivityInterface {
 
+    fun init(){
+        initView()
+        initListener()
+        initData()
+    }
+
     inline fun <T : ViewBinding> viewBinding(
         crossinline bindingInflater: (LayoutInflater) -> T
     ) =

@@ -11,6 +11,7 @@ import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
 import com.arjinmc.jetpackplayground.architecture.room.RoomActivity
+import com.arjinmc.jetpackplayground.architecture.viewmodel.ViewModelActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
 import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
@@ -104,6 +105,8 @@ class MainActivity : BasicActivity() {
                 startActivity(RangeSliderActivity::class.java)
             getString(R.string.material_text_input_layout) ->
                 startActivity(TextInputLayoutActivity::class.java)
+            getString(R.string.arch_view_model) ->
+                startActivity(ViewModelActivity::class.java)
         }
     }
 

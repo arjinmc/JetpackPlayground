@@ -24,11 +24,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".architecture.room.RoomActivity"/>
+        <activity android:name=".architecture.room.RoomActivity" />
         <activity android:name=".architecture.room.RoomDefaultActivity" />
 
         <activity android:name=".architecture.ViewBindingActivity" />
         <activity android:name=".architecture.DataStoreActivity" />
+
+        <activity android:name=".architecture.viewmodel.ViewModelActivity" />
 
         <activity android:name=".ui.constrainlayout.ConstrainLayoutActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutBasicActivity" />
