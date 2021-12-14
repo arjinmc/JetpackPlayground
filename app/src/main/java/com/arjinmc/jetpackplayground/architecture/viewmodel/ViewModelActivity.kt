@@ -1,7 +1,9 @@
 package com.arjinmc.jetpackplayground.architecture.viewmodel
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActViewModelBinding
 
@@ -32,5 +34,13 @@ class ViewModelActivity : BasicActivity() {
         mViewModel.setData(UserBean(1, "Jin"))
         binding.tvContent.text =
             "id:" + mViewModel.getData()?.id + ",name:" + mViewModel.getData()?.name
+    }
+
+    override fun onRestoreInstanceState(
+        savedInstanceState: Bundle?,
+        persistentState: PersistableBundle?
+    ) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState)
+        mViewModel.loadData()
     }
 }

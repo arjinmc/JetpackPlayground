@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.arjinmc.jetpackplayground.basic.BasicFragment
 import com.arjinmc.jetpackplayground.databinding.FragViewModelBinding
 
@@ -16,7 +16,8 @@ class ViewModelFragment : BasicFragment() {
 
     private val binding by lazy { FragViewModelBinding.inflate(layoutInflater) }
 
-    private val viewModel: MyViewModel by activityViewModels()
+    //    private val viewModel: MyViewModel by activityViewModels()
+    private var viewModel: MyViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,16 +34,16 @@ class ViewModelFragment : BasicFragment() {
     }
 
     override fun initView() {
-
+        viewModel = ViewModelProvider(this)[MyViewModel::class.java]
     }
 
     override fun initListener() {
     }
 
     override fun initData() {
-        viewModel.setData(UserBean(2, "Jetpack"))
+        viewModel?.setData(UserBean(2, "Jetpack"))
         binding.tvContent.text =
-            "id:" + viewModel.getData()?.id + ",name:" + viewModel.getData()?.name
+            "id:" + viewModel?.getData()?.id + ",name:" + viewModel?.getData()?.name
 
     }
 

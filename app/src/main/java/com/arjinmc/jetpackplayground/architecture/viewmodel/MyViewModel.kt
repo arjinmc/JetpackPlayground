@@ -1,5 +1,6 @@
 package com.arjinmc.jetpackplayground.architecture.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 
 /**
@@ -20,5 +21,6 @@ class MyViewModel : ViewModel(), IViewModel<UserBean> {
     }
 
     override fun loadData() {
+        Log.e("loadData", mData.toString())
     }
 }
