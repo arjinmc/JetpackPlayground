@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.architecture
 
 import android.os.Bundle
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActViewBindingBinding
 
@@ -26,6 +27,8 @@ class ViewBindingActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.arch_view_binding)
+
         binding.tvName.text = "name:arjinmc"
         binding.tvOrganization.text = "organization: CSG"
         binding.tvAddress.text = "address: Shenzhen,China"

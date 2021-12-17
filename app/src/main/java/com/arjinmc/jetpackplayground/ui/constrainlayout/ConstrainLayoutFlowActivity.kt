@@ -43,7 +43,7 @@ class ConstrainLayoutFlowActivity : BasicActivity() {
     }
 
     override fun initData() {
-
+        setTitle(R.string.constrain_layout_flow)
     }
 
 }

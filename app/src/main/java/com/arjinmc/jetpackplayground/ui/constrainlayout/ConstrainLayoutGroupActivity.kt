@@ -2,6 +2,7 @@ package com.arjinmc.jetpackplayground.ui.constrainlayout
 
 import android.os.Bundle
 import android.view.View
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutGroupBinding
 
@@ -38,7 +39,7 @@ class ConstrainLayoutGroupActivity : BasicActivity() {
     }
 
     override fun initData() {
-
+        setTitle(R.string.constrain_layout_group)
     }
 
 }

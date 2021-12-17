@@ -19,7 +19,7 @@ import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
  * Created by Eminem Lo on 21/5/2021.
  * email: arjinmc@hotmail.com
  */
-class RoomDefaultActivity : BasicActivity() {
+class RoomOriginalActivity : BasicActivity() {
 
     private val binding by lazy { ActRoomBinding.inflate(layoutInflater) }
 
@@ -74,6 +74,7 @@ class RoomDefaultActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.room_default)
         mDataList = mutableListOf()
         mDataAdapter = RecyclerViewAdapter(
             getContext(),

@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.ui.constrainlayout
 
 import android.os.Bundle
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutBarrierBinding
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutBasicBinding
@@ -29,6 +30,7 @@ class ConstrainLayoutBarrierActivity : BasicActivity() {
 
     override fun initData() {
 
+        setTitle(R.string.constrain_layout_barrier)
     }
 
 }

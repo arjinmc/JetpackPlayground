@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.material.textinputlayout
 
 import android.os.Bundle
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActTextInputLayoutBinding
 
@@ -54,5 +55,6 @@ class TextInputLayoutActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.material_text_input_layout)
     }
 }

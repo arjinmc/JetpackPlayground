@@ -56,6 +56,8 @@ class DataStoreActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.arch_data_store)
+
         showStoreData()
     }
 

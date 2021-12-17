@@ -48,6 +48,8 @@ class MotionLayoutActivity : BasicActivity() {
 
     override fun initData() {
 
+        setTitle(R.string.ui_motion_layout)
+
         mAdapter = RecyclerViewAdapter(
             getContext(),
             mOptions,

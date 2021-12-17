@@ -76,7 +76,7 @@
     <string name="constrain_layout_barrier">Barrier</string>
     <string name="constrain_layout_baseline">Baseline</string>
     <string name="constrain_layout_group">Group</string>
-    <string name="constrain_layout_circular_positioning">Circular positioning</string>
+    <string name="constrain_layout_circular_position">Circular position</string>
     <string name="constrain_layout_flow">Flow</string>
     <string name="constrain_layout_constrain_set">ConstrainSet</string>
 

@@ -2,6 +2,7 @@ package com.arjinmc.jetpackplayground.basic
 
 import android.content.Context
 import android.view.LayoutInflater
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
@@ -20,6 +21,14 @@ abstract class BasicActivity : AppCompatActivity(), BasicActivityInterface {
         initView()
         initListener()
         initData()
+    }
+
+    open fun setTitle(title:String){
+        supportActionBar?.title = title
+    }
+
+    override fun setTitle(@StringRes titleRes:Int){
+        supportActionBar?.setTitle(titleRes)
     }
 
     inline fun <T : ViewBinding> viewBinding(

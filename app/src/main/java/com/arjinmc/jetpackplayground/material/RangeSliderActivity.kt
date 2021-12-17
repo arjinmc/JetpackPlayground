@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.material
 
 import android.os.Bundle
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActRangeSliderBinding
 
@@ -25,5 +26,6 @@ class RangeSliderActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.material_range_slider)
     }
 }

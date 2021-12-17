@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActViewModelBinding
 
@@ -31,6 +32,9 @@ class ViewModelActivity : BasicActivity() {
     }
 
     override fun initData() {
+        setTitle(R.string.arch_view_model)
+
+//         var viewModel = ViewModelProvider(this)[MyViewModel::class.java]
         mViewModel.setData(UserBean(1, "Jin"))
         binding.tvContent.text =
             "id:" + mViewModel.getData()?.id + ",name:" + mViewModel.getData()?.name

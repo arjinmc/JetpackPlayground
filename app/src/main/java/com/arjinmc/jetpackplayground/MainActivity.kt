@@ -10,6 +10,7 @@ import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
+import com.arjinmc.jetpackplayground.architecture.livedata.LiveDataActivity
 import com.arjinmc.jetpackplayground.architecture.room.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.viewmodel.ViewModelActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
@@ -107,6 +108,8 @@ class MainActivity : BasicActivity() {
                 startActivity(TextInputLayoutActivity::class.java)
             getString(R.string.arch_view_model) ->
                 startActivity(ViewModelActivity::class.java)
+            getString(R.string.arch_live_data) ->
+                startActivity(LiveDataActivity::class.java)
         }
     }
 

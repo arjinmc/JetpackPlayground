@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.ui.constrainlayout
 
 import android.os.Bundle
+import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutBasicBinding
 import com.arjinmc.jetpackplayground.databinding.ActConstrainLayoutChainStytleBinding
@@ -27,7 +28,7 @@ class ConstrainLayoutChainStyleActivity : BasicActivity() {
     }
 
     override fun initData() {
-
+        setTitle(R.string.constrain_layout_chain_style)
     }
 
 }

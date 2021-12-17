@@ -32,7 +32,7 @@ class ConstrainLayoutActivity : BasicActivity() {
         R.string.constrain_layout_barrier,
         R.string.constrain_layout_baseline,
         R.string.constrain_layout_group,
-        R.string.constrain_layout_circular_positioning,
+        R.string.constrain_layout_circular_position,
         R.string.constrain_layout_flow,
         R.string.constrain_layout_constrain_set
     )
@@ -58,6 +58,8 @@ class ConstrainLayoutActivity : BasicActivity() {
     }
 
     override fun initData() {
+
+        setTitle(R.string.ui_constrain_layout)
 
         mAdapter = RecyclerViewAdapter(
             getContext(),
@@ -119,7 +121,7 @@ class ConstrainLayoutActivity : BasicActivity() {
                     getContext(),
                     ConstrainLayoutGroupActivity::class.java
                 )
-                R.string.constrain_layout_circular_positioning -> IntentUtil.startActivity(
+                R.string.constrain_layout_circular_position -> IntentUtil.startActivity(
                     getContext(),
                     ConstrainLayoutCircularPositionActivity::class.java
                 )

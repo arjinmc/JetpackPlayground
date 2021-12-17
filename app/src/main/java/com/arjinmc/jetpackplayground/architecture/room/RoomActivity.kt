@@ -48,6 +48,8 @@ class RoomActivity : BasicActivity() {
 
     override fun initData() {
 
+        setTitle(R.string.arch_room)
+
         mAdapter = RecyclerViewAdapter(
             getContext(),
             mOptions,
@@ -67,7 +69,7 @@ class RoomActivity : BasicActivity() {
             when (mOptions[it]) {
                 R.string.room_default -> IntentUtil.startActivity(
                     getContext(),
-                    RoomDefaultActivity::class.java
+                    RoomOriginalActivity::class.java
                 )
 //                R.string.room_rxjava -> IntentUtil.startActivity(
 //                    getContext(),
