@@ -31,6 +31,7 @@
         <activity android:name=".architecture.DataStoreActivity" />
         <activity android:name=".architecture.viewmodel.ViewModelActivity" />
         <activity android:name=".architecture.livedata.LiveDataActivity" />
+        <activity android:name=".architecture.databinding.DataBindingActivity"/>
 
         <activity android:name=".architecture.lifecycle.LifecycleActivity" />
         <activity android:name=".architecture.lifecycle.CustomLifecycleOwnerActivity" />
