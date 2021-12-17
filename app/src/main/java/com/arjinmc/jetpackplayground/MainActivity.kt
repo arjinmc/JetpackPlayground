@@ -10,6 +10,7 @@ import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
+import com.arjinmc.jetpackplayground.architecture.lifecycle.LifecycleActivity
 import com.arjinmc.jetpackplayground.architecture.livedata.LiveDataActivity
 import com.arjinmc.jetpackplayground.architecture.room.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.viewmodel.ViewModelActivity
@@ -92,24 +93,16 @@ class MainActivity : BasicActivity() {
 
     private fun goActivity(optionName: String) {
         when (optionName) {
-            getString(R.string.arch_room) ->
-                startActivity(RoomActivity::class.java)
-            getString(R.string.arch_view_binding) ->
-                startActivity(ViewBindingActivity::class.java)
-            getString(R.string.arch_data_store) ->
-                startActivity(DataStoreActivity::class.java)
-            getString(R.string.ui_constrain_layout) ->
-                startActivity(ConstrainLayoutActivity::class.java)
-            getString(R.string.ui_motion_layout) ->
-                startActivity(MotionLayoutActivity::class.java)
-            getString(R.string.material_range_slider) ->
-                startActivity(RangeSliderActivity::class.java)
-            getString(R.string.material_text_input_layout) ->
-                startActivity(TextInputLayoutActivity::class.java)
-            getString(R.string.arch_view_model) ->
-                startActivity(ViewModelActivity::class.java)
-            getString(R.string.arch_live_data) ->
-                startActivity(LiveDataActivity::class.java)
+            getString(R.string.arch_room) -> startActivity(RoomActivity::class.java)
+            getString(R.string.arch_view_binding) -> startActivity(ViewBindingActivity::class.java)
+            getString(R.string.arch_data_store) -> startActivity(DataStoreActivity::class.java)
+            getString(R.string.ui_constrain_layout) -> startActivity(ConstrainLayoutActivity::class.java)
+            getString(R.string.ui_motion_layout) -> startActivity(MotionLayoutActivity::class.java)
+            getString(R.string.material_range_slider) -> startActivity(RangeSliderActivity::class.java)
+            getString(R.string.material_text_input_layout) -> startActivity(TextInputLayoutActivity::class.java)
+            getString(R.string.arch_view_model) -> startActivity(ViewModelActivity::class.java)
+            getString(R.string.arch_live_data) -> startActivity(LiveDataActivity::class.java)
+            getString(R.string.arch_lifecycle) -> startActivity(LifecycleActivity::class.java)
         }
     }
 
