@@ -87,4 +87,7 @@
         <item>25</item>
         <item>75</item>
     </array>
+
+    <string name="databinding_sample_id">ID: %d</string>
+
 </resources>
