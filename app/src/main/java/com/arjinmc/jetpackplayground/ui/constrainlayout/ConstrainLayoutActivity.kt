@@ -34,6 +34,7 @@ class ConstrainLayoutActivity : BasicActivity() {
         R.string.constrain_layout_group,
         R.string.constrain_layout_circular_position,
         R.string.constrain_layout_flow,
+        R.string.constrain_layout_layer,
         R.string.constrain_layout_constrain_set
     )
 
@@ -129,6 +130,12 @@ class ConstrainLayoutActivity : BasicActivity() {
                     getContext(),
                     ConstrainLayoutFlowActivity::class.java
                 )
+
+                R.string.constrain_layout_layer -> IntentUtil.startActivity(
+                    getContext(),
+                    ConstrainLayoutLayerActivity::class.java
+                )
+
                 R.string.constrain_layout_constrain_set -> IntentUtil.startActivity(
                     getContext(),
                     ConstrainLayoutConstrainSetActivity::class.java

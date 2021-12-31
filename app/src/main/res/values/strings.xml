@@ -6,11 +6,14 @@
     <string name="arch_live_data">LiveData</string>
     <string name="arch_data_binding">DataBinding</string>
     <string name="arch_lifecycle">Lifecycle</string>
-    <string name="arch_paging">Paging</string>
+    <string name="arch_paging">Paging (Too complex)</string>
     <string name="arch_view_model">ViewModel</string>
     <string name="arch_view_binding">ViewBinding</string>
     <string name="arch_worker_manager">WorkerManager</string>
     <string name="arch_data_store">DataStore</string>
+    <string name="arch_coroutine">Coroutine</string>
+    <string name="arch_dagger2">Dagger2</string>
+    <string name="arch_hilt">Hilt</string>
 
     <string name="ui">UI</string>
     <string name="ui_animation_and_transitions">Animation &amp; Transitions</string>
@@ -42,6 +45,9 @@
         <item>@string/arch_paging</item>
         <item>@string/arch_worker_manager</item>
         <item>@string/arch_data_store</item>
+        <item>@string/arch_coroutine</item>
+        <item>@string/arch_dagger2</item>
+        <item>@string/arch_hilt</item>
 
         <item>@string/ui</item>
         <item>@string/ui_animation_and_transitions</item>
@@ -63,6 +69,8 @@
         <item>@string/material_text_input_layout</item>
     </string-array>
 
+    <string name="coroutine_basic">basic</string>
+
     <string name="room_default">Original</string>
     <string name="room_rxjava">RxJava</string>
 
@@ -78,6 +86,7 @@
     <string name="constrain_layout_group">Group</string>
     <string name="constrain_layout_circular_position">Circular position</string>
     <string name="constrain_layout_flow">Flow</string>
+    <string name="constrain_layout_layer">Layer</string>
     <string name="constrain_layout_constrain_set">ConstrainSet</string>
 
     <string name="motion_layout_"></string>

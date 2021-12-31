@@ -37,6 +37,8 @@
         <activity android:name=".architecture.lifecycle.LifecycleActivity" />
         <activity android:name=".architecture.lifecycle.CustomLifecycleOwnerActivity" />
 
+        <activity android:name=".architecture.coroutines.CoroutinesActivity" />
+
         <activity android:name=".ui.constrainlayout.ConstrainLayoutActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutBasicActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutAutoRightActivity" />
@@ -50,6 +52,7 @@
         <activity android:name=".ui.constrainlayout.ConstrainLayoutGroupActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutBaselineActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutFlowActivity" />
+        <activity android:name=".ui.constrainlayout.ConstrainLayoutLayerActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutConstrainSetActivity" />
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />

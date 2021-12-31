@@ -10,6 +10,7 @@ import com.arjinmc.expandrecyclerview.adapter.RecyclerViewViewHolder
 import com.arjinmc.expandrecyclerview.style.RecyclerViewStyleHelper
 import com.arjinmc.jetpackplayground.architecture.DataStoreActivity
 import com.arjinmc.jetpackplayground.architecture.ViewBindingActivity
+import com.arjinmc.jetpackplayground.architecture.coroutines.CoroutinesActivity
 import com.arjinmc.jetpackplayground.architecture.databinding.DataBindingActivity
 import com.arjinmc.jetpackplayground.architecture.lifecycle.LifecycleActivity
 import com.arjinmc.jetpackplayground.architecture.livedata.LiveDataActivity
@@ -105,6 +106,7 @@ class MainActivity : BasicActivity() {
             getString(R.string.arch_live_data) -> startActivity(LiveDataActivity::class.java)
             getString(R.string.arch_lifecycle) -> startActivity(LifecycleActivity::class.java)
             getString(R.string.arch_data_binding) -> startActivity(DataBindingActivity::class.java)
+            getString(R.string.arch_coroutine) -> startActivity(CoroutinesActivity::class.java)
         }
     }
 
