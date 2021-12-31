@@ -88,6 +88,7 @@
     <string name="constrain_layout_flow">Flow</string>
     <string name="constrain_layout_layer">Layer</string>
     <string name="constrain_layout_constrain_set">ConstrainSet</string>
+    <string name="constrain_layout_image_filter">ImageFilter View and Button</string>
 
     <string name="motion_layout_"></string>
 

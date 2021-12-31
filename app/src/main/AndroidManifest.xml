@@ -54,6 +54,7 @@
         <activity android:name=".ui.constrainlayout.ConstrainLayoutFlowActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutLayerActivity" />
         <activity android:name=".ui.constrainlayout.ConstrainLayoutConstrainSetActivity" />
+        <activity android:name=".ui.constrainlayout.ConstrainLayoutImageFilterActivity" />
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
 

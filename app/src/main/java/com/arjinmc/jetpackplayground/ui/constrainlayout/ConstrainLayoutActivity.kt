@@ -35,7 +35,8 @@ class ConstrainLayoutActivity : BasicActivity() {
         R.string.constrain_layout_circular_position,
         R.string.constrain_layout_flow,
         R.string.constrain_layout_layer,
-        R.string.constrain_layout_constrain_set
+        R.string.constrain_layout_constrain_set,
+        R.string.constrain_layout_image_filter
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -139,6 +140,11 @@ class ConstrainLayoutActivity : BasicActivity() {
                 R.string.constrain_layout_constrain_set -> IntentUtil.startActivity(
                     getContext(),
                     ConstrainLayoutConstrainSetActivity::class.java
+                )
+
+                R.string.constrain_layout_image_filter -> IntentUtil.startActivity(
+                    getContext(),
+                    ConstrainLayoutImageFilterActivity::class.java
                 )
             }
         }
