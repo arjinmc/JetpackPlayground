@@ -6,5 +6,6 @@ package com.arjinmc.jetpackplayground.architecture.databinding
  */
 data class DataBindingDataBean(
     var id: Long? = null,
-    var name: String? = null
+    var name: String? = null,
+    var desc: String? = null
 )

@@ -12,6 +12,10 @@
             name="click"
             type="com.arjinmc.jetpackplayground.architecture.databinding.IDataBindingDataOnClickListener" />
 
+        <variable
+            name="click2"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,13 +40,41 @@
 
         <Button
             android:id="@+id/btn_check"
-            android:text="Check"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:onClick="@{() ->  click.onClick(product.name)}"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            android:text="Check"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <EditText
+            android:id="@+id/et_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="desc"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_check" />
+
+        <Button
+            android:id="@+id/btn_check_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Check DESC"
+            android:onClick="@{(view) ->  click2.onClick(view)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_desc" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setData="@{product.desc}"
+            android:text="desc"
+            app:shown="@{true}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_check_desc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
