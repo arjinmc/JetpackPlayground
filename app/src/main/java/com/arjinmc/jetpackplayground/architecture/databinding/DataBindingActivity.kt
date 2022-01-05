@@ -34,6 +34,8 @@ class DataBindingActivity : BasicActivity() {
         binding.product = DataBindingDataBean(123123, "Jin")
         //notify data change
         binding.executePendingBindings()
+        //change text
+//        binding.include.tvProductId.text = "hahah"
 
         binding.click = IDataBindingDataOnClickListener { msg ->
             if (!msg.isNullOrBlank()) {
