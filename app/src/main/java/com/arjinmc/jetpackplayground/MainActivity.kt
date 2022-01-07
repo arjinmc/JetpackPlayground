@@ -17,6 +17,7 @@ import com.arjinmc.jetpackplayground.architecture.livedata.LiveDataActivity
 import com.arjinmc.jetpackplayground.architecture.room.RoomActivity
 import com.arjinmc.jetpackplayground.architecture.viewmodel.ViewModelActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
+import com.arjinmc.jetpackplayground.material.BottomAppBarActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
 import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
 import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
@@ -107,6 +108,7 @@ class MainActivity : BasicActivity() {
             getString(R.string.arch_lifecycle) -> startActivity(LifecycleActivity::class.java)
             getString(R.string.arch_data_binding) -> startActivity(DataBindingActivity::class.java)
             getString(R.string.arch_coroutine) -> startActivity(CoroutinesActivity::class.java)
+            getString(R.string.material_bottom_app_bar) -> startActivity(BottomAppBarActivity::class.java)
         }
     }
 

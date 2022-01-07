@@ -13,6 +13,8 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 
 import android.content.Intent
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.stateIn
 import java.io.File
@@ -30,6 +32,17 @@ class CoroutinesActivity : BasicActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
+
+        kotlin.runCatching {  }
+
+        postponeEnterTransition()
+
+
+        runBlocking {
+            var susjob = suspendCancellableCoroutine<Int> {
+
+            }
+        }
 
 //        var job1 = newSingleThreadContext("Go1")
 //        runBlocking {
@@ -66,5 +79,4 @@ class CoroutinesActivity : BasicActivity() {
         super.onDestroy()
         scope.cancel()
     }
-
 }

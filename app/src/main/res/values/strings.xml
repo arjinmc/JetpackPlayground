@@ -33,6 +33,7 @@
     <string name="material">Material</string>
     <string name="material_range_slider">RangeSlider</string>
     <string name="material_text_input_layout">TextInputLayout</string>
+    <string name="material_bottom_app_bar">BottomAppBar</string>
 
     <string-array name="options">
         <item>@string/architecture</item>
@@ -67,6 +68,7 @@
         <item>@string/material</item>
         <item>@string/material_range_slider</item>
         <item>@string/material_text_input_layout</item>
+        <item>@string/material_bottom_app_bar</item>
     </string-array>
 
     <string name="coroutine_basic">basic</string>
