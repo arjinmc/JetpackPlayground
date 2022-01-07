@@ -1,6 +1,10 @@
 package com.arjinmc.jetpackplayground.architecture.lifecycle
 
 import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActLifecycleBinding
@@ -29,6 +33,14 @@ class LifecycleActivity : BasicActivity() {
             IntentUtil.startActivity(this, CustomLifecycleOwnerActivity::class.java)
         }
         lifecycle.addObserver(ActivityLifecycleObserver(LifecycleActivity::class.java))
+        lifecycle.addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                when (event) {
+                    Lifecycle.Event.ON_CREATE -> Log.e("LifecycleEventObserver", "onCreate")
+                    Lifecycle.Event.ON_RESUME -> Log.e("LifecycleEventObserver", "onResume")
+                }
+            }
+        })
     }
 
     override fun initData() {

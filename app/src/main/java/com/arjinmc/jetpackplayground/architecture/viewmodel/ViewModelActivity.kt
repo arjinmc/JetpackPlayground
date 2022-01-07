@@ -47,4 +47,9 @@ class ViewModelActivity : BasicActivity() {
         super.onRestoreInstanceState(savedInstanceState, persistentState)
         mViewModel.loadData()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModelStore.clear()
+    }
 }
