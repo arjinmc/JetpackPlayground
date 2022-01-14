@@ -21,6 +21,7 @@
     <string name="ui_palette">Palette</string>
     <string name="ui_constrain_layout">ConstrainLayout</string>
     <string name="ui_motion_layout">MotionLayout</string>
+    <string name="ui_sliding_pane_layout">SlidingPaneLayout</string>
 
     <string name="behavior">Behavior</string>
     <string name="behavior_download_manager">Download Manager</string>
@@ -56,6 +57,7 @@
         <item>@string/ui_palette</item>
         <item>@string/ui_constrain_layout</item>
         <item>@string/ui_motion_layout</item>
+        <item>@string/ui_sliding_pane_layout</item>
 
         <item>@string/behavior</item>
         <item>@string/behavior_download_manager</item>
@@ -93,7 +95,6 @@
     <string name="constrain_layout_image_filter">ImageFilter View and Button</string>
 
     <string name="motion_layout_"></string>
-
 
     <array name="range_slider_values" >
         <item>25</item>

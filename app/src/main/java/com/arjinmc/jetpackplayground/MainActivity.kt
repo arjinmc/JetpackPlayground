@@ -20,6 +20,7 @@ import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.BottomAppBarActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
 import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
+import com.arjinmc.jetpackplayground.ui.slidingpanelayout.SlidingPaneLayoutActivity
 import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
 import com.arjinmc.jetpackplayground.ui.motionlayout.MotionLayoutActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
@@ -27,7 +28,6 @@ import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 import com.arjinmc.recyclerviewdecoration.RecyclerViewStickyHeadItemDecoration
 
 /**
- *
  * Created by Eminem Lo on 21/5/2021.
  * email: arjinmc@hotmail.com
  */
@@ -109,6 +109,7 @@ class MainActivity : BasicActivity() {
             getString(R.string.arch_data_binding) -> startActivity(DataBindingActivity::class.java)
             getString(R.string.arch_coroutine) -> startActivity(CoroutinesActivity::class.java)
             getString(R.string.material_bottom_app_bar) -> startActivity(BottomAppBarActivity::class.java)
+            getString(R.string.ui_sliding_pane_layout) -> startActivity(SlidingPaneLayoutActivity::class.java)
         }
     }
 
