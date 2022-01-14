@@ -58,7 +58,7 @@
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
 
-        <activity android:name=".ui.slidingpanelayout.SlidingPaneLayoutActivity"/>
+        <activity android:name=".ui.SlidingPaneLayoutActivity"/>
 
         <activity android:name=".material.RangeSliderActivity" />
         <activity android:name=".material.textinputlayout.TextInputLayoutActivity" />

@@ -1,4 +1,4 @@
-package com.arjinmc.jetpackplayground.ui.slidingpanelayout
+package com.arjinmc.jetpackplayground.ui
 
 import android.os.Bundle
 import android.util.Log

@@ -20,7 +20,7 @@ import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.BottomAppBarActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
 import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
-import com.arjinmc.jetpackplayground.ui.slidingpanelayout.SlidingPaneLayoutActivity
+import com.arjinmc.jetpackplayground.ui.SlidingPaneLayoutActivity
 import com.arjinmc.jetpackplayground.ui.constrainlayout.ConstrainLayoutActivity
 import com.arjinmc.jetpackplayground.ui.motionlayout.MotionLayoutActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
