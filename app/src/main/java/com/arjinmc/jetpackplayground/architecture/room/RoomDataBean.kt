@@ -8,6 +8,12 @@ import androidx.room.PrimaryKey
 /**
  * Created by Eminem Lo on 12/2/21
  * email: arjinmc@hotmail.com
+ *
+ * auto migration support
+ * @DeleteColumn
+ * @DeleteTable
+ * @RenameColumn
+ * @RenameTable
  */
 @Entity(tableName = "room_data")
 class RoomDataBean {

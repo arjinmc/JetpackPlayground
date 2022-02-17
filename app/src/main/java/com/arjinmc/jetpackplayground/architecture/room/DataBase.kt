@@ -14,6 +14,15 @@ import androidx.sqlite.db.SupportSQLiteDatabase
  */
 
 //@Database(entities = [RoomDataBean::class], version = 2)
+//use AutoMigration, this part not working yet
+//@Database(
+//    version = 2,
+//    entities = [RoomDataBean::class],
+//    autoMigrations = {
+//        @AutoMigration(from = 1, to = 2, spec = RoomDataBean::class)
+//    }
+//            exprotSchema = true
+//)
 @Database(entities = [RoomDataBean::class], version = 1)
 abstract class DataBase : RoomDatabase() {
 

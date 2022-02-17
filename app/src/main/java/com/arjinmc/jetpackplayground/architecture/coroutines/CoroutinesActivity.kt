@@ -1,23 +1,13 @@
 package com.arjinmc.jetpackplayground.architecture.coroutines
 
+import android.graphics.Point
 import android.os.Bundle
-import android.util.Log
-import androidx.core.os.bundleOf
 import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlin.contracts.contract
-import androidx.core.app.ActivityCompat.startActivityForResult
-
-import android.content.Intent
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.stateIn
-import java.io.File
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 
 
 /**
@@ -32,10 +22,10 @@ class CoroutinesActivity : BasicActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
-
-        kotlin.runCatching {  }
+        kotlin.runCatching { }
 
         postponeEnterTransition()
+
 
 
         runBlocking {
@@ -78,5 +68,9 @@ class CoroutinesActivity : BasicActivity() {
     override fun onDestroy() {
         super.onDestroy()
         scope.cancel()
+
     }
+
+
+
 }
