@@ -64,6 +64,9 @@
         <activity android:name=".material.textinputlayout.TextInputLayoutActivity" />
         <activity android:name=".material.BottomAppBarActivity"/>
 
+        <activity android:name=".ui.compose.ComposeActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeBasicActivity"/>
+
     </application>
 
 </manifest>

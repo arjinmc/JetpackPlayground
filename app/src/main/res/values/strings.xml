@@ -22,6 +22,7 @@
     <string name="ui_constrain_layout">ConstrainLayout</string>
     <string name="ui_motion_layout">MotionLayout</string>
     <string name="ui_sliding_pane_layout">SlidingPaneLayout</string>
+    <string name="ui_compose">Compose</string>
 
     <string name="behavior">Behavior</string>
     <string name="behavior_download_manager">Download Manager</string>
@@ -58,6 +59,7 @@
         <item>@string/ui_constrain_layout</item>
         <item>@string/ui_motion_layout</item>
         <item>@string/ui_sliding_pane_layout</item>
+        <item>@string/ui_compose</item>
 
         <item>@string/behavior</item>
         <item>@string/behavior_download_manager</item>
@@ -71,6 +73,7 @@
         <item>@string/material_range_slider</item>
         <item>@string/material_text_input_layout</item>
         <item>@string/material_bottom_app_bar</item>
+
     </string-array>
 
     <string name="coroutine_basic">basic</string>
@@ -95,6 +98,8 @@
     <string name="constrain_layout_image_filter">ImageFilter View and Button</string>
 
     <string name="motion_layout_"></string>
+
+    <string name="compose_basic">Basic</string>
 
     <array name="range_slider_values" >
         <item>25</item>
