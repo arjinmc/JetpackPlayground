@@ -1,29 +1,38 @@
 package com.arjinmc.jetpackplayground.ui.compose.widget
 
 import android.content.Context
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.arjinmc.jetpackplayground.util.ToastUtil
+
 
 /**
  * Created by Eminem Lo on 3/7/22
@@ -31,11 +40,16 @@ import androidx.compose.ui.unit.sp
  */
 @Preview
 @Composable
-fun ComposeBasicPage(context: Context,onLeftClick: () -> Unit?) {
+fun ComposeBasicPage(context: Context, onLeftClick: () -> Unit?) {
     Scaffold {
         Column {
-            ComposeBaseHeader(context,"Back", onLeftClick)
-            Text("Hello Compose", modifier = Modifier.fillMaxWidth(1f))
+            ComposeBaseHeader(context, "Back", onLeftClick)
+            Text(
+                "Hello Compose",
+                modifier = Modifier
+                    .fillMaxWidth(1f)
+                    .padding(10.dp)
+            )
             Text(
                 "Hello Compose ".repeat(50),
                 maxLines = 2,
@@ -64,7 +78,7 @@ fun ComposeBasicPage(context: Context,onLeftClick: () -> Unit?) {
                 }
             )
 
-            SelectionContainer (Modifier.background(Color.Green)){
+            SelectionContainer(Modifier.background(Color.Green)) {
                 Column {
                     Text("This text is selectable")
                     DisableSelection {
@@ -76,7 +90,37 @@ fun ComposeBasicPage(context: Context,onLeftClick: () -> Unit?) {
 
             }
 
-            AnnotatedClickableText()
+            AnnotatedClickableText(context)
+
+            var value by remember { mutableStateOf("Hello\nWorld\nInvisible") }
+
+            TextField(
+                value = value,
+                onValueChange = { value = it },
+                label = { Text("Enter text") },
+                maxLines = 2,
+                textStyle = TextStyle(color = Color.Blue, fontWeight = FontWeight.Bold),
+                modifier = Modifier.padding(20.dp)
+            )
+            passwordField()
+
+            OutlinedButton(onClick = { /*TODO*/ }) {
+                Icon(imageVector = Icons.Default.Place, contentDescription = "")
+            }
+
+            var iconToggle by remember { mutableStateOf(true) }
+            IconToggleButton(checked = iconToggle, onCheckedChange = { iconToggle = it }) {
+                Icon(
+                    imageVector = Icons.Filled.Favorite,
+                    contentDescription = "Favorite",
+                    tint = if (iconToggle) {
+                        Color.Red
+                    } else {
+                        Color.Gray
+                    }
+                )
+            }
+
         }
 
     }
@@ -87,7 +131,7 @@ fun ComposeBaseHeader(context: Context, titleStr: String?, onLeftClick: () -> Un
 
     CommonHeader(titleStr, onLeftClick) {
         IconButton(
-            onClick = { Toast.makeText(context,"Setting",Toast.LENGTH_SHORT).show()}
+            onClick = { Toast.makeText(context, "Setting", Toast.LENGTH_SHORT).show() }
         ) {
             Icon(Icons.Filled.Settings, null)
         }
@@ -101,16 +145,22 @@ fun ComposeBaseHeader(context: Context, titleStr: String?, onLeftClick: () -> Un
 }
 
 @Composable
-fun AnnotatedClickableText() {
+fun AnnotatedClickableText(context: Context) {
     val annotatedText = buildAnnotatedString {
         append("Click ")
 
         // We attach this *URL* annotation to the following content
         // until `pop()` is called
-        pushStringAnnotation(tag = "URL",
-            annotation = "https://developer.android.com")
-        withStyle(style = SpanStyle(color = Color.Blue,
-            fontWeight = FontWeight.Bold)) {
+        pushStringAnnotation(
+            tag = "URL",
+            annotation = "https://developer.android.com"
+        )
+        withStyle(
+            style = SpanStyle(
+                color = Color.Blue,
+                fontWeight = FontWeight.Bold
+            )
+        ) {
             append("here")
         }
         pop()
@@ -119,17 +169,32 @@ fun AnnotatedClickableText() {
     ClickableText(
         text = annotatedText,
         onClick = { offset ->
-            annotatedText.getStringAnnotations(tag = "URL", start = offset,
-                end = offset)
+            annotatedText.getStringAnnotations(
+                tag = "URL", start = offset,
+                end = offset
+            )
                 .firstOrNull()?.let { annotation ->
-                    Log.d("Clicked URL", annotation.item)
+                    ToastUtil.showShort(context, "Clicked URL:${annotation.item}")
                 }
         }
     )
 }
 
 
+/**
+ * more visualTransformation samples
+ * https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/ui/ui-text/samples/src/main/java/androidx/compose/ui/text/samples/VisualTransformationSamples.kt
+ */
 @Composable
-fun ComposableText() {
+fun passwordField() {
+    //default text for passwordField
+    var text by remember { mutableStateOf("") }
 
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        label = { Text("Password") },
+        visualTransformation = PasswordVisualTransformation(),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+    )
 }

@@ -12,6 +12,8 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActCommonListBinding
 import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeBasicActivity
+import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeListViewActivity
+import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeLoginActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 
@@ -25,7 +27,19 @@ class ComposeActivity : BasicActivity() {
 
     private val mOptions = mutableListOf(
         R.string.compose_basic,
-        R.string.compose_basic,
+        R.string.compose_login,
+        R.string.compose_listview,
+        R.string.compose_grid,
+        R.string.compose_scaffold,
+        R.string.compose_bottom_bar,
+        R.string.compose_constrain_layout,
+        R.string.compose_theme,
+        R.string.compose_canvas,
+        R.string.compose_animation,
+        R.string.compose_use_view,
+        R.string.compose_view_use_compose,
+        R.string.compose_drawer_menu,
+        R.string.compose_pure_compose_architecture,
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -73,10 +87,14 @@ class ComposeActivity : BasicActivity() {
                     getContext(),
                     ComposeBasicActivity::class.java
                 )
-//                R.string.room_rxjava -> IntentUtil.startActivity(
-//                    getContext(),
-//                    RoomDefaultActivity::class.java
-//                )
+                R.string.compose_login -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeLoginActivity::class.java
+                )
+                R.string.compose_listview -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeListViewActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter

@@ -14,8 +14,7 @@ class ComposeBasicActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val pageUI = ComposeBasicPage(this) { finish() }
+            ComposeBasicPage(this) { finish() }
         }
     }
-
 }

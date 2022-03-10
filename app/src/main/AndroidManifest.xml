@@ -66,6 +66,8 @@
 
         <activity android:name=".ui.compose.ComposeActivity"/>
         <activity android:name=".ui.compose.basic.ComposeBasicActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeLoginActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeListViewActivity"/>
 
     </application>
 

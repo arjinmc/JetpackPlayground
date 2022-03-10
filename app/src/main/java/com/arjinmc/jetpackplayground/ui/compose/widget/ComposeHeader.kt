@@ -26,7 +26,7 @@ fun CommonHeaderWithSetting(
 
     CommonHeader(titleStr, onLeftClick) {
         IconButton(
-            onClick = { onSettingClick.invoke() }
+            onClick = { onSettingClick() }
         ) {
             Icon(Icons.Filled.Settings, null)
         }
@@ -44,7 +44,7 @@ fun CommonHeader(
         navigationIcon = {
             if (!titleStr.isNullOrEmpty()) {
                 IconButton(
-                    onClick = { onLeftClick.invoke() }
+                    onClick = { onLeftClick() }
                 ) {
                     Icon(Icons.Filled.ArrowBack, null)
                 }
