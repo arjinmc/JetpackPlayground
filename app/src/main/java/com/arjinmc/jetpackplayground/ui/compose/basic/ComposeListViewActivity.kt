@@ -2,13 +2,17 @@ package com.arjinmc.jetpackplayground.ui.compose.basic
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -20,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.arjinmc.jetpackplayground.ui.compose.model.ComposeListData
 import com.arjinmc.jetpackplayground.ui.compose.widget.ComposeBaseHeader
+import com.arjinmc.jetpackplayground.util.ToastUtil
 
 /**
  * Created by Eminem Lo on 3/10/22
@@ -36,8 +41,8 @@ class ComposeListViewActivity : ComponentActivity() {
 
     fun initData(): MutableList<ComposeListData> {
         return mutableListOf<ComposeListData>().apply {
-            for (i in 0..10) {
-                add(ComposeListData("name" + i, "content:$i x $i",System.currentTimeMillis()))
+            for (i in 0..20) {
+                add(ComposeListData("name" + i, "content:$i x $i", System.currentTimeMillis()))
             }
         }
     }
@@ -55,9 +60,14 @@ class ComposeListViewActivity : ComponentActivity() {
                 onLeftClick = onLeftClick
             )
 
-            Column(Modifier.padding(10.dp, 10.dp).fillMaxWidth()) {
-                listData.forEach { itemData ->
-                    ListViewItem1(data = itemData)
+            //use this type enable to scroll
+            val listState = rememberLazyListState()
+            LazyColumn(state = listState) {
+                Modifier
+                    .padding(10.dp, 10.dp)
+                    .fillMaxWidth()
+                items(listData.toList()) { itemData ->
+                    ListViewItem1(context = context, data = itemData)
                     ListDivider()
                 }
             }
@@ -66,9 +76,16 @@ class ComposeListViewActivity : ComponentActivity() {
     }
 
     @Composable
-    fun ListViewItem1(data: ComposeListData) {
-        Row (Modifier.padding(10.dp).fillMaxWidth()){
-            Column {
+    fun ListViewItem1(context: Context, data: ComposeListData) {
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth()
+                .clickable {
+                    ToastUtil.showShort(context, "click item :${data.name}")
+                }
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
                 Text(text = data.name ?: "")
                 Text(text = data.content ?: "")
                 Text(text = "" + data.timestamp)

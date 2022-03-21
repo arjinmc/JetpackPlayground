@@ -12,6 +12,7 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActCommonListBinding
 import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeBasicActivity
+import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeGridViewActivity
 import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeListViewActivity
 import com.arjinmc.jetpackplayground.ui.compose.basic.ComposeLoginActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
@@ -94,6 +95,11 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_listview -> IntentUtil.startActivity(
                     getContext(),
                     ComposeListViewActivity::class.java
+                )
+
+                R.string.compose_grid -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeGridViewActivity::class.java
                 )
             }
         }

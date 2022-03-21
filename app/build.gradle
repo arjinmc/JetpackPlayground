@@ -104,6 +104,9 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$composeVersion"
     // When using a MDC theme for compose
     implementation "com.google.android.material:compose-theme-adapter:1.1.5"
+    //for load image
+    implementation("io.coil-kt:coil:1.4.0")
+    implementation("io.coil-kt:coil-compose:1.4.0")
 
     implementation 'com.github.arjinmc:ExpandRecyclerView:3.2'
 }
