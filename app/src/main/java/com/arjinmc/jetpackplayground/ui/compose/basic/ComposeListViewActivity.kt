@@ -2,21 +2,15 @@ package com.arjinmc.jetpackplayground.ui.compose.basic
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Divider
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdsClick
 import androidx.compose.runtime.Composable
@@ -60,18 +54,34 @@ class ComposeListViewActivity : ComponentActivity() {
                 onLeftClick = onLeftClick
             )
 
-            //use this type enable to scroll
-            val listState = rememberLazyListState()
-            LazyColumn(state = listState) {
-                Modifier
-                    .padding(10.dp, 10.dp)
-                    .fillMaxWidth()
-                items(listData.toList()) { itemData ->
-                    ListViewItem1(context = context, data = itemData)
-                    ListDivider()
+            Scaffold(modifier = Modifier.weight(1f)) {
+                //use this type enable to scroll
+                val listState = rememberLazyListState()
+                LazyColumn(state = listState) {
+                    Modifier
+                        .padding(10.dp, 10.dp)
+                        .fillMaxWidth()
+                    items(listData.toList()) { itemData ->
+                        ListViewItem1(context = context, data = itemData)
+                        ListDivider1()
+                    }
                 }
             }
 
+            Column {
+                val listState2 = rememberLazyListState()
+                LazyRow(state = listState2, modifier = Modifier.fillMaxHeight(0.1f)) {
+                    items(listData.toList()) { itemData ->
+                        ListViewItem2(context = context, data = itemData)
+                        Divider(
+                            modifier = Modifier
+                                .fillParentMaxHeight()
+                                .width(1.dp),
+                            color = MaterialTheme.colors.onSurface.copy(alpha = 0.08f)
+                        )
+                    }
+                }
+            }
         }
     }
 
@@ -95,7 +105,25 @@ class ComposeListViewActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun ListDivider() {
+    fun ListViewItem2(context: Context, data: ComposeListData) {
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+                .clickable {
+                    ToastUtil.showShort(context, "click item2 :${data.name}")
+                }
+        ) {
+            Column() {
+                Text(text = data.name ?: "")
+                Text(text = data.content ?: "")
+                Text(text = "" + data.timestamp)
+            }
+            Icon(imageVector = Icons.Default.AdsClick, contentDescription = "")
+        }
+    }
+
+    @Composable
+    private fun ListDivider1() {
         Divider(
             modifier = Modifier.padding(horizontal = 14.dp),
             color = MaterialTheme.colors.onSurface.copy(alpha = 0.08f)

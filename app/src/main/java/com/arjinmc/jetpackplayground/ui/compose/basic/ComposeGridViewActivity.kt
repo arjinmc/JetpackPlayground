@@ -183,7 +183,7 @@ fun GridViewPage(context: Context, onLeftClick: () -> Unit?, listData: List<Comp
     Column {
         ComposeBaseHeader(
             context = context,
-            titleStr = "Compose List",
+            titleStr = "Compose Grid",
             onLeftClick = onLeftClick
         )
 
