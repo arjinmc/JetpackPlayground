@@ -104,7 +104,6 @@
     <string name="compose_listview">ListView</string>
     <string name="compose_grid">Grid</string>
     <string name="compose_scaffold">Scaffold</string>
-    <string name="compose_bottom_bar">BottomBar</string>
     <string name="compose_constrain_layout">ConstrainLayout</string>
     <string name="compose_theme">Theme</string>
     <string name="compose_canvas">Canvas</string>
@@ -112,6 +111,7 @@
     <string name="compose_use_view">Compose use View</string>
     <string name="compose_view_use_compose">View use Compose</string>
     <string name="compose_drawer_menu">Drawer Menu</string>
+    <string name="compose_tab_layout">Tab Layout</string>
     <string name="compose_pure_compose_architecture">Pure Compose Architecture</string>
 
     <array name="range_slider_values" >

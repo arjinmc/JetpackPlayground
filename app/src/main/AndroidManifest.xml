@@ -72,6 +72,7 @@
         <activity android:name=".ui.compose.basic.ComposeListViewActivity"/>
         <activity android:name=".ui.compose.basic.ComposeGridViewActivity"/>
         <activity android:name=".ui.compose.basic.ComposeScaffoldActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeDrawerMenuActivity"/>
 
     </application>
 

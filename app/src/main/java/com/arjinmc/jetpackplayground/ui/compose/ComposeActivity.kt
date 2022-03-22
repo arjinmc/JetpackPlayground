@@ -29,7 +29,6 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_listview,
         R.string.compose_grid,
         R.string.compose_scaffold,
-        R.string.compose_bottom_bar,
         R.string.compose_constrain_layout,
         R.string.compose_theme,
         R.string.compose_canvas,
@@ -37,6 +36,7 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_use_view,
         R.string.compose_view_use_compose,
         R.string.compose_drawer_menu,
+        R.string.compose_tab_layout,
         R.string.compose_pure_compose_architecture,
     )
 
@@ -102,6 +102,11 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_scaffold -> IntentUtil.startActivity(
                     getContext(),
                     ComposeScaffoldActivity::class.java
+                )
+
+                R.string.compose_drawer_menu -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeDrawerMenuActivity::class.java
                 )
             }
         }
