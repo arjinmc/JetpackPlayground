@@ -112,6 +112,7 @@
     <string name="compose_view_use_compose">View use Compose</string>
     <string name="compose_drawer_menu">Drawer Menu</string>
     <string name="compose_tab_layout">Tab Layout</string>
+    <string name="compose_view_pager">ViewPager</string>
     <string name="compose_pure_compose_architecture">Pure Compose Architecture</string>
 
     <array name="range_slider_values" >

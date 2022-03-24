@@ -12,6 +12,7 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActCommonListBinding
 import com.arjinmc.jetpackplayground.ui.compose.basic.*
+import com.arjinmc.jetpackplayground.ui.compose.tabs.ComposeTabsActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 
@@ -37,6 +38,7 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_view_use_compose,
         R.string.compose_drawer_menu,
         R.string.compose_tab_layout,
+        R.string.compose_view_pager,
         R.string.compose_pure_compose_architecture,
     )
 
@@ -107,6 +109,11 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_drawer_menu -> IntentUtil.startActivity(
                     getContext(),
                     ComposeDrawerMenuActivity::class.java
+                )
+
+                R.string.compose_tab_layout -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeTabsActivity::class.java
                 )
             }
         }

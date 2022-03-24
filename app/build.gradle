@@ -113,7 +113,9 @@ dependencies {
     implementation("io.coil-kt:coil:$coilVersion")
     implementation("io.coil-kt:coil-compose:$coilVersion")
     //navigation
-    implementation "androidx.navigation:navigation-compose:$composeVersion"
+    implementation "androidx.navigation:navigation-compose:$navigationVersion"
+    //google accompanist
+    implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
 
     implementation 'com.github.arjinmc:ExpandRecyclerView:3.2'
 }

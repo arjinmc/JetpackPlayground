@@ -35,4 +35,6 @@ ext{
     composeVersion = "1.1.1"
     coilVersion = "1.4.0"
     navigationVersion = "2.4.1"
+
+    accompanistVersion = "0.23.0"
 }

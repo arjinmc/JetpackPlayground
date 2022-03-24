@@ -9,15 +9,25 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ListAlt
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.arjinmc.jetpackplayground.ui.compose.route.DrawerNavigation
 import com.arjinmc.jetpackplayground.ui.compose.route.DrawerRoute
 import com.arjinmc.jetpackplayground.ui.compose.widget.NavigationIcon
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.statusBarsPadding
 import kotlinx.coroutines.launch
 
 /**
@@ -27,32 +37,41 @@ import kotlinx.coroutines.launch
 class ComposeDrawerMenuActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { }
+        setContent { DrawerMenuMain()}
     }
 }
 
 @Composable
 fun DrawerMenuMain() {
 
-//    val currentRoute =
-//        navBackStackEntry?.destination?.route ?: DrawerRoute.HOME_ROUTE
-//
-//    val navController = rememberNavController()
-//    val navigationActions = remember(navController) {
-//        DrawerNavigation(navController)
-//    }
-//
+    val coroutineScope = rememberCoroutineScope()
+
+    val navController = rememberNavController()
+    val navigationActions = remember(navController) {
+        DrawerNavigation(navController)
+    }
+
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route ?: DrawerRoute.HOME_ROUTE
+
+
 //    ModalDrawer(drawerContent = {
 //        AppDrawer(
 //            currentRoute = currentRoute,
 //            navigateToHome = navigationActions.navigateToHome,
-//            navigateToInterests = navigationActions.navigateToInterests,
+//            navigateToTabs = navigationActions.navigateToTabs,
 //            closeDrawer = { coroutineScope.launch { sizeAwareDrawerState.close() } },
 //            modifier = Modifier
 //                .statusBarsPadding()
 //                .navigationBarsPadding()
 //        )
-//    }) {
+//    }){
+//        JetnewsNavGraph(
+//            appContainer = appContainer,
+//            isExpandedScreen = isExpandedScreen,
+//            navController = navController,
+//            openDrawer = { coroutineScope.launch { sizeAwareDrawerState.open() } },
+//        )
 //
 //    }
 }
@@ -64,7 +83,7 @@ fun DrawerMenuMain() {
 fun AppDrawer(
     currentRoute: String,
     navigateToHome: () -> Unit,
-    navigateToInterests: () -> Unit,
+    navigateToTabs: () -> Unit,
     closeDrawer: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -86,12 +105,48 @@ fun AppDrawer(
             label = "Tabs",
             isSelected = currentRoute == DrawerRoute.TAB_ROUTE,
             action = {
-                navigateToInterests()
+                navigateToTabs()
                 closeDrawer()
             }
         )
     }
 }
+
+//@Composable
+//fun JetnewsNavGraph(
+//    isExpandedScreen: Boolean,
+//    modifier: Modifier = Modifier,
+//    navController: NavHostController = rememberNavController(),
+//    openDrawer: () -> Unit = {},
+//    startDestination: String = JetnewsDestinations.HOME_ROUTE
+//) {
+//    NavHost(
+//        navController = navController,
+//        startDestination = startDestination,
+//        modifier = modifier
+//    ) {
+//        composable(JetnewsDestinations.HOME_ROUTE) {
+//            val homeViewModel: HomeViewModel = viewModel(
+//                factory = HomeViewModel.provideFactory(appContainer.postsRepository)
+//            )
+//            HomeRoute(
+//                homeViewModel = homeViewModel,
+//                isExpandedScreen = isExpandedScreen,
+//                openDrawer = openDrawer
+//            )
+//        }
+//        composable(JetnewsDestinations.INTERESTS_ROUTE) {
+//            val interestsViewModel: InterestsViewModel = viewModel(
+//                factory = InterestsViewModel.provideFactory(appContainer.interestsRepository)
+//            )
+//            InterestsRoute(
+//                interestsViewModel = interestsViewModel,
+//                isExpandedScreen = isExpandedScreen,
+//                openDrawer = openDrawer
+//            )
+//        }
+//    }
+//}
 
 @Composable
 private fun DrawerButton(
