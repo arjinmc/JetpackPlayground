@@ -12,7 +12,10 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActCommonListBinding
 import com.arjinmc.jetpackplayground.ui.compose.basic.*
+import com.arjinmc.jetpackplayground.ui.compose.tabs.ComposeScrollableTabRowActivity
 import com.arjinmc.jetpackplayground.ui.compose.tabs.ComposeTabsActivity
+import com.arjinmc.jetpackplayground.ui.compose.viewpager.ComposeViewPager2Activity
+import com.arjinmc.jetpackplayground.ui.compose.viewpager.ComposeViewPagerActivity
 import com.arjinmc.jetpackplayground.util.IntentUtil
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 
@@ -37,7 +40,9 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_use_view,
         R.string.compose_view_use_compose,
         R.string.compose_drawer_menu,
+        R.string.compose_navigation,
         R.string.compose_tab_layout,
+        R.string.compose_scrollable_tab_row,
         R.string.compose_view_pager,
         R.string.compose_pure_compose_architecture,
     )
@@ -114,6 +119,15 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_tab_layout -> IntentUtil.startActivity(
                     getContext(),
                     ComposeTabsActivity::class.java
+                )
+                R.string.compose_scrollable_tab_row -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeScrollableTabRowActivity::class.java
+                )
+                R.string.compose_view_pager -> IntentUtil.startActivity(
+                    getContext(),
+//                    ComposeViewPagerActivity::class.java
+                    ComposeViewPager2Activity::class.java
                 )
             }
         }

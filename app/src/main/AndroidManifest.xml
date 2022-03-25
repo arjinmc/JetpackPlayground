@@ -74,6 +74,9 @@
         <activity android:name=".ui.compose.basic.ComposeScaffoldActivity"/>
         <activity android:name=".ui.compose.basic.ComposeDrawerMenuActivity"/>
         <activity android:name=".ui.compose.tabs.ComposeTabsActivity"/>
+        <activity android:name=".ui.compose.tabs.ComposeScrollableTabRowActivity"/>
+        <activity android:name=".ui.compose.viewpager.ComposeViewPagerActivity"/>
+        <activity android:name=".ui.compose.viewpager.ComposeViewPager2Activity"/>
 
     </application>
 

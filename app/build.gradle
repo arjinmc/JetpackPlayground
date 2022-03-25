@@ -116,6 +116,8 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:$navigationVersion"
     //google accompanist
     implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
+    //google accompanist pager as view pager
+    implementation "com.google.accompanist:accompanist-pager:0.20.0"
 
     implementation 'com.github.arjinmc:ExpandRecyclerView:3.2'
 }

@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdsClick
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.arjinmc.jetpackplayground.ui.compose.model.ComposeListData
 import com.arjinmc.jetpackplayground.ui.compose.widget.ComposeBaseHeader
@@ -41,6 +44,7 @@ class ComposeListViewActivity : ComponentActivity() {
         }
     }
 
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     fun ListViewPage(
         context: Context,
@@ -57,10 +61,23 @@ class ComposeListViewActivity : ComponentActivity() {
             Scaffold(modifier = Modifier.weight(1f)) {
                 //use this type enable to scroll
                 val listState = rememberLazyListState()
-                LazyColumn(state = listState) {
-                    Modifier
-                        .padding(10.dp, 10.dp)
-                        .fillMaxWidth()
+                LazyColumn(
+                    state = listState,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+
+                    //for real need a group list data
+                    stickyHeader {
+                        Text(
+                            text = "SECTION: ${listData[0].name}",
+                            color = Color.White,
+                            modifier = Modifier
+                                .background(color = Color.Black)
+                                .padding(8.dp)
+                                .fillMaxWidth()
+                        )
+                    }
+
                     items(listData.toList()) { itemData ->
                         ListViewItem1(context = context, data = itemData)
                         ListDivider1()

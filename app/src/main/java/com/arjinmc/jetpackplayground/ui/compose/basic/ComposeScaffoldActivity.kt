@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Popup
 import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.ui.compose.widget.CommonHeader
+import com.arjinmc.jetpackplayground.util.ToastUtil
 import kotlinx.coroutines.launch
 
 /**
@@ -58,8 +59,20 @@ fun ScaffoldPage(context: Context, onLeftClick: () -> Unit) {
                 text = { Text("Show snackbar") },
                 onClick = {
                     scope.launch {
-                        scaffoldState.snackbarHostState
-                            .showSnackbar("Snackbar")
+                        when (scaffoldState.snackbarHostState.showSnackbar(
+                            message = "Snack Bar",
+                            actionLabel = "Dismiss",
+                        )) {
+                            SnackbarResult.Dismissed -> {
+                                // do something when
+                            }
+
+                            SnackbarResult.ActionPerformed -> {
+                                // when it appears
+                                ToastUtil.showShort(context,"Dismiss Action")
+                            }
+
+                        }
                     }
                 }
             )

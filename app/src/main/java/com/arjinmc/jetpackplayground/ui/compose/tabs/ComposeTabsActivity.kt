@@ -5,10 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -65,21 +62,40 @@ fun FrontLayer(tabSelected: ComposeTabs) {
 
 @Composable
 fun BackLayer() {
-    Text(text = "hello", modifier = Modifier.padding(10.dp))
+    Column {
+        repeat(20){
+            Text(text = "hello", modifier = Modifier.padding(10.dp))
+        }
+    }
 }
 
 @Composable
 fun EatPart() {
-    Text(text = "Eat something", modifier = Modifier.padding(10.dp), color = Color.Red, fontSize = 18.sp)
+    Column {
+        repeat(30) {
+            Text(
+                text = "Eat something",
+                modifier = Modifier.padding(10.dp),
+                color = Color.Red,
+                fontSize = 18.sp
+            )
+        }
+    }
+
 }
 
 @Composable
 fun PlayPart() {
-    Text(text = "Play a game", modifier = Modifier.padding(10.dp), color = Color.Green,fontSize = 18.sp)
+    Text(
+        text = "Play a game",
+        modifier = Modifier.padding(10.dp),
+        color = Color.Green,
+        fontSize = 18.sp
+    )
 }
 
 @Composable
-private fun HomeTabBar(
+fun HomeTabBar(
     tabSelected: ComposeTabs,
     onTabSelected: (ComposeTabs) -> Unit,
     modifier: Modifier = Modifier
