@@ -1,21 +1,19 @@
-package com.arjinmc.jetpackplayground.ui.compose.viewpager
+package com.arjinmc.jetpackplayground.ui.compose.basic
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Tab
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,7 +48,6 @@ class ComposeViewPagerActivity : ComponentActivity() {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun ViewPagerPage(context: Context, onLeftClick: () -> Unit) {
-    var tabSelected by remember { mutableStateOf(ComposeTabs.HOME) }
     Scaffold(
         topBar = {
             ComposeBaseHeader(
@@ -61,8 +58,15 @@ fun ViewPagerPage(context: Context, onLeftClick: () -> Unit) {
         },
     ) {
         val pagerState = rememberPagerState(initialPage = 0)
-        ScrollableTabLayout(tabSelected = tabSelected, onPageSelected = { tabSelected = it }, pageState = pagerState)
-        ViewPageLayout(pagerState)
+        //need mark the index as pagerState.currentPage
+        val tabIndex = pagerState.currentPage
+        Column {
+            ScrollableTabLayout(
+                tabIndex,
+                pageState = pagerState
+            )
+            ViewPageLayout(pagerState)
+        }
     }
 }
 
@@ -74,17 +78,16 @@ fun ViewPagerPageHome() {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun ScrollableTabLayout(
-    tabSelected: ComposeTabs,
-    onPageSelected: ((tabItem: ComposeTabs) -> Unit),
+    tabIndex: Int,
     pageState: PagerState
 ) {
 
     val coroutineScope = rememberCoroutineScope()
 
-    ScrollableTabRow(selectedTabIndex = tabSelected.ordinal) {
+    ScrollableTabRow(selectedTabIndex = tabIndex) {
 
         ComposeTabs.values().map { it.name }.forEachIndexed { index, title ->
-            val selected = index == tabSelected.ordinal
+            val selected = tabIndex == index
 
             var borderModifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)
             if (selected) {
@@ -95,13 +98,13 @@ fun ScrollableTabLayout(
             }
 
             Tab(
-                modifier = Modifier.padding(6.dp),
+                modifier = Modifier
+                    .padding(6.dp)
+                    .defaultMinSize(100.dp),
                 selected = selected,
                 onClick = {
-                    Log.e("tag","index:${ComposeTabs.values()[index]}")
-//                    onPageSelected(ComposeTabs.values()[index])
                     coroutineScope.launch {
-                        pageState.animateScrollToPage(tabSelected.ordinal, 1f)
+                        pageState.animateScrollToPage(index)
                     }
                 }
             ) {
@@ -126,15 +129,21 @@ fun ViewPageLayout(pageState: PagerState) {
         count = ComposeTabs.values().size,
         state = pageState
     ) { index ->
-        when (index) {
-            ComposeTabs.HOME.ordinal -> {
-                ViewPagerPageHome()
-            }
-            ComposeTabs.EAT.ordinal -> {
-                EatPart()
-            }
-            ComposeTabs.PLAY.ordinal -> {
-                PlayPart()
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            when (index) {
+                ComposeTabs.HOME.ordinal -> {
+                    ViewPagerPageHome()
+                }
+                ComposeTabs.EAT.ordinal -> {
+                    EatPart()
+                }
+                ComposeTabs.PLAY.ordinal -> {
+                    PlayPart()
+                }
             }
         }
     }
