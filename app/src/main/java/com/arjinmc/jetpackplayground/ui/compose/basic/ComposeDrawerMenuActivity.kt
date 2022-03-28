@@ -3,31 +3,26 @@ package com.arjinmc.jetpackplayground.ui.compose.basic
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.ListAlt
+import androidx.compose.material.icons.filled.AdsClick
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.arjinmc.jetpackplayground.ui.compose.route.DrawerNavigation
 import com.arjinmc.jetpackplayground.ui.compose.route.DrawerRoute
-import com.arjinmc.jetpackplayground.ui.compose.widget.NavigationIcon
-import com.google.accompanist.insets.navigationBarsPadding
-import com.google.accompanist.insets.statusBarsPadding
 import kotlinx.coroutines.launch
 
 /**
@@ -37,167 +32,115 @@ import kotlinx.coroutines.launch
 class ComposeDrawerMenuActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { DrawerMenuMain()}
-    }
-}
-
-@Composable
-fun DrawerMenuMain() {
-
-    val coroutineScope = rememberCoroutineScope()
-
-    val navController = rememberNavController()
-    val navigationActions = remember(navController) {
-        DrawerNavigation(navController)
+        setContent { DrawerMenuMain() }
     }
 
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: DrawerRoute.HOME_ROUTE
+    @Composable
+    fun DrawerMenuMain() {
 
+        val navController = rememberNavController()
+        val drawerState = rememberDrawerState(DrawerValue.Closed)
 
-//    ModalDrawer(drawerContent = {
-//        AppDrawer(
-//            currentRoute = currentRoute,
-//            navigateToHome = navigationActions.navigateToHome,
-//            navigateToTabs = navigationActions.navigateToTabs,
-//            closeDrawer = { coroutineScope.launch { sizeAwareDrawerState.close() } },
-//            modifier = Modifier
-//                .statusBarsPadding()
-//                .navigationBarsPadding()
-//        )
-//    }){
-//        JetnewsNavGraph(
-//            appContainer = appContainer,
-//            isExpandedScreen = isExpandedScreen,
-//            navController = navController,
-//            openDrawer = { coroutineScope.launch { sizeAwareDrawerState.open() } },
-//        )
-//
-//    }
-}
+        ModalDrawer(
+            drawerState = drawerState,
+            gesturesEnabled = drawerState.isOpen,
+            drawerContent = {
+                DrawerMenu(drawerState = drawerState, navController = navController)
+            }) {
 
-/**
- * drawer menu
- */
-@Composable
-fun AppDrawer(
-    currentRoute: String,
-    navigateToHome: () -> Unit,
-    navigateToTabs: () -> Unit,
-    closeDrawer: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier.fillMaxSize()) {
-        Text(text = "Drawer Menu")
-        Divider(color = MaterialTheme.colors.onSurface.copy(alpha = .2f))
-        DrawerButton(
-            icon = Icons.Filled.Home,
-            label = "home",
-            isSelected = currentRoute == DrawerRoute.HOME_ROUTE,
-            action = {
-                navigateToHome()
-                closeDrawer()
+            NavHost(navController = navController, startDestination = DrawerRoute.HOME_ROUTE) {
+
+                composable(DrawerRoute.HOME_ROUTE) {
+                    DrawerHomePage(drawerState)
+                }
+                composable(DrawerRoute.TAB_ROUTE) {
+                    DrawerTabPage(drawerState)
+                }
             }
-        )
+        }
 
-        DrawerButton(
-            icon = Icons.Filled.ListAlt,
-            label = "Tabs",
-            isSelected = currentRoute == DrawerRoute.TAB_ROUTE,
-            action = {
-                navigateToTabs()
-                closeDrawer()
-            }
-        )
-    }
-}
-
-//@Composable
-//fun JetnewsNavGraph(
-//    isExpandedScreen: Boolean,
-//    modifier: Modifier = Modifier,
-//    navController: NavHostController = rememberNavController(),
-//    openDrawer: () -> Unit = {},
-//    startDestination: String = JetnewsDestinations.HOME_ROUTE
-//) {
-//    NavHost(
-//        navController = navController,
-//        startDestination = startDestination,
-//        modifier = modifier
-//    ) {
-//        composable(JetnewsDestinations.HOME_ROUTE) {
-//            val homeViewModel: HomeViewModel = viewModel(
-//                factory = HomeViewModel.provideFactory(appContainer.postsRepository)
-//            )
-//            HomeRoute(
-//                homeViewModel = homeViewModel,
-//                isExpandedScreen = isExpandedScreen,
-//                openDrawer = openDrawer
-//            )
-//        }
-//        composable(JetnewsDestinations.INTERESTS_ROUTE) {
-//            val interestsViewModel: InterestsViewModel = viewModel(
-//                factory = InterestsViewModel.provideFactory(appContainer.interestsRepository)
-//            )
-//            InterestsRoute(
-//                interestsViewModel = interestsViewModel,
-//                isExpandedScreen = isExpandedScreen,
-//                openDrawer = openDrawer
-//            )
-//        }
-//    }
-//}
-
-@Composable
-private fun DrawerButton(
-    icon: ImageVector,
-    label: String,
-    isSelected: Boolean,
-    action: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    val colors = MaterialTheme.colors
-    val textIconColor = if (isSelected) {
-        colors.primary
-    } else {
-        colors.onSurface.copy(alpha = 0.6f)
-    }
-    val backgroundColor = if (isSelected) {
-        colors.primary.copy(alpha = 0.12f)
-    } else {
-        Color.Transparent
     }
 
-    val surfaceModifier = modifier
-        .padding(start = 8.dp, top = 8.dp, end = 8.dp)
-        .fillMaxWidth()
-    Surface(
-        modifier = surfaceModifier,
-        color = backgroundColor,
-        shape = MaterialTheme.shapes.small
-    ) {
-        TextButton(
-            onClick = action,
+    @Composable
+    fun DrawerMenu(drawerState: DrawerState, navController: NavHostController) {
+        val listState = rememberLazyListState()
+        LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Row(
-                horizontalArrangement = Arrangement.Start,
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                NavigationIcon(
-                    icon = icon,
-                    isSelected = isSelected,
-                    contentDescription = null, // decorative
-                    tintColor = textIconColor
-                )
-                Spacer(Modifier.width(16.dp))
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.body2,
-                    color = textIconColor
+            val listData = mutableListOf(DrawerRoute.HOME_ROUTE, DrawerRoute.TAB_ROUTE)
+            items(listData) { itemData ->
+                ListViewItem(
+                    data = itemData,
+                    drawerState = drawerState,
+                    navController = navController
                 )
             }
         }
     }
+
+    @Composable
+    fun ListViewItem(data: String, drawerState: DrawerState, navController: NavHostController) {
+        val coroutineScope = rememberCoroutineScope()
+        Row(
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth()
+                .clickable {
+                    navController.navigate(data) {
+                        coroutineScope.launch {
+                            drawerState.close()
+                        }
+
+                        //when call back to stack go to HOME_ROUTE
+                        popUpTo(DrawerRoute.HOME_ROUTE)
+
+//                        popUpTo(navController.graph.findStartDestination().id) {
+//                            saveState = true
+//                        }
+//                        launchSingleTop = true
+//                        restoreState = true
+                    }
+                }
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = data)
+            }
+            Icon(imageVector = Icons.Default.AdsClick, contentDescription = "")
+        }
+    }
+
+
+    @Composable
+    fun DrawerHomePage(drawerState: DrawerState) {
+        val coroutineScope = rememberCoroutineScope()
+        Column {
+            Text(" This is Home page")
+            Button({
+                //open drawer
+                coroutineScope.launch {
+                    drawerState.open()
+                }
+            }) {
+                Text(text = "Drawer Menu")
+            }
+        }
+    }
+
+    @Composable
+    fun DrawerTabPage(drawerState: DrawerState) {
+        val coroutineScope = rememberCoroutineScope()
+        Column {
+            Text(" This is Tab page")
+            Button({
+                //open drawer
+                coroutineScope.launch {
+                    drawerState.open()
+                }
+            }) {
+                Text(text = "Drawer Menu")
+            }
+        }
+    }
+
 }
