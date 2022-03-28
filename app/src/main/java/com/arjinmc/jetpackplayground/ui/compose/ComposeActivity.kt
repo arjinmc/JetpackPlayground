@@ -114,6 +114,11 @@ class ComposeActivity : BasicActivity() {
                     ComposeDrawerMenuActivity::class.java
                 )
 
+                R.string.compose_navigation -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeNavigationActivity::class.java
+                )
+
                 R.string.compose_tab_layout -> IntentUtil.startActivity(
                     getContext(),
                     ComposeTabsActivity::class.java
@@ -126,6 +131,7 @@ class ComposeActivity : BasicActivity() {
                     getContext(),
                     ComposeViewPagerActivity::class.java
                 )
+
             }
         }
         binding.rvOptions.adapter = mAdapter

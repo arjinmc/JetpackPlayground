@@ -76,6 +76,7 @@
         <activity android:name=".ui.compose.tabs.ComposeTabsActivity"/>
         <activity android:name=".ui.compose.tabs.ComposeScrollableTabRowActivity"/>
         <activity android:name=".ui.compose.basic.ComposeViewPagerActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeNavigationActivity"/>
 
     </application>
 
