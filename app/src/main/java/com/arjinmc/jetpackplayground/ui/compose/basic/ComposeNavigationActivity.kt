@@ -2,13 +2,13 @@ package com.arjinmc.jetpackplayground.ui.compose.basic
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.ui.compose.route.NavigationRoute
@@ -57,8 +58,8 @@ class ComposeNavigationActivity : ComponentActivity() {
     @Composable
     private fun NavigationBottomBar(navController: NavController) {
         val navigationDataList = NavigationRoute.values()
-//        var selectedItem by remember { mutableStateOf(NavigationRoute.HOME) }
-        var selectedItem by remember { mutableStateOf(navController.currentDestination?.route ?: NavigationRoute.HOME.routeName)}
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        val selectedItem = navBackStackEntry?.destination?.route
 
         BottomNavigation(
             backgroundColor = colorResource(id = R.color.purple_700),
@@ -75,9 +76,9 @@ class ComposeNavigationActivity : ComponentActivity() {
                     },
                     selectedContentColor = Color.White,
                     unselectedContentColor = Color.White.copy(0.4f),
-                    selected = (selectedItem == item.routeName),
+                    selected = selectedItem == item.routeName,
                     onClick = {
-                        selectedItem = item.routeName
+//                        selectedItem = item.routeName
                         navController.navigate(item.routeName) {
                             navController.graph.startDestinationRoute?.let { route ->
                                 popUpTo(route) {
@@ -101,17 +102,14 @@ class ComposeNavigationActivity : ComponentActivity() {
         NavHost(navController = navController, startDestination = NavigationRoute.HOME.routeName) {
             composable(NavigationRoute.HOME.routeName) {
                 ContentHome()
-                navController.currentDestination?.route = NavigationRoute.HOME.routeName
             }
 
             composable(NavigationRoute.CONTACT.routeName) {
                 ContentContact()
-                navController.currentDestination?.route = NavigationRoute.CONTACT.routeName
             }
 
             composable(NavigationRoute.MESSAGE.routeName) {
                 ContentMessage(navController)
-                navController.currentDestination?.route = NavigationRoute.MESSAGE.routeName
             }
 
             //navigate to define and get params
