@@ -95,6 +95,7 @@ class ComposeDrawerMenuActivity : ComponentActivity() {
                         //when call back to stack go to HOME_ROUTE
                         popUpTo(DrawerRoute.HOME_ROUTE)
 
+                        //avoid building large stack of destinations
 //                        popUpTo(navController.graph.findStartDestination().id) {
 //                            saveState = true
 //                        }

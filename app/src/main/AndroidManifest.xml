@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arjinmc.jetpackplayground">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -60,23 +60,32 @@
 
         <activity android:name=".ui.motionlayout.MotionLayoutActivity" />
 
-        <activity android:name=".ui.SlidingPaneLayoutActivity"/>
+        <activity android:name=".ui.SlidingPaneLayoutActivity" />
 
         <activity android:name=".material.RangeSliderActivity" />
         <activity android:name=".material.textinputlayout.TextInputLayoutActivity" />
-        <activity android:name=".material.BottomAppBarActivity"/>
+        <activity android:name=".material.BottomAppBarActivity" />
 
-        <activity android:name=".ui.compose.ComposeActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeBasicActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeLoginActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeListViewActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeGridViewActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeScaffoldActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeDrawerMenuActivity"/>
-        <activity android:name=".ui.compose.tabs.ComposeTabsActivity"/>
-        <activity android:name=".ui.compose.tabs.ComposeScrollableTabRowActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeViewPagerActivity"/>
-        <activity android:name=".ui.compose.basic.ComposeNavigationActivity"/>
+        <activity android:name=".ui.compose.ComposeActivity" />
+        <activity android:name=".ui.compose.basic.ComposeBasicActivity" />
+        <activity android:name=".ui.compose.basic.ComposeLoginActivity" />
+        <activity android:name=".ui.compose.basic.ComposeListViewActivity" />
+        <activity android:name=".ui.compose.basic.ComposeGridViewActivity" />
+        <activity android:name=".ui.compose.basic.ComposeScaffoldActivity" />
+        <activity android:name=".ui.compose.basic.ComposeDrawerMenuActivity" />
+        <activity android:name=".ui.compose.tabs.ComposeTabsActivity" />
+        <activity android:name=".ui.compose.tabs.ComposeScrollableTabRowActivity" />
+        <activity android:name=".ui.compose.basic.ComposeViewPagerActivity" />
+        <activity
+            android:name=".ui.compose.basic.ComposeNavigationActivity"
+            android:exported="true">
+            <!-- navigation for deep link -->
+            <intent-filter>
+                <data
+                    android:host="www.example.com"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
 
     </application>
 

@@ -5,16 +5,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.navigation.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.ui.compose.route.NavigationRoute
@@ -40,28 +42,28 @@ class ComposeNavigationActivity : ComponentActivity() {
 
         val navController = rememberNavController()
 
-        Scaffold(topBar = {
-            ComposeBaseHeader(
-                context = context,
-                titleStr = "ViewPager",
-                onLeftClick = onLeftClick
-            )
-
-        }, bottomBar = { NavigationBottomBar(navController) }) {
-
-        }
+        Scaffold(
+            topBar = {
+                ComposeBaseHeader(
+                    context = context,
+                    titleStr = "Navigation",
+                    onLeftClick = onLeftClick
+                )
+            },
+            bottomBar = { NavigationBottomBar(navController) },
+            content = { ContentPage(navController) })
     }
 
     @Composable
-    fun NavigationBottomBar(navController: NavController) {
-
+    private fun NavigationBottomBar(navController: NavController) {
         val navigationDataList = NavigationRoute.values()
-        var currentRoute = remember { NavigationRoute.HOME }
+//        var selectedItem by remember { mutableStateOf(NavigationRoute.HOME) }
+        var selectedItem by remember { mutableStateOf(navController.currentDestination?.route ?: NavigationRoute.HOME.routeName)}
 
         BottomNavigation(
             backgroundColor = colorResource(id = R.color.purple_700),
         ) {
-            navigationDataList.forEach { item ->
+            navigationDataList.forEachIndexed { index, item ->
                 BottomNavigationItem(
                     label = { Text(item.routeName, fontSize = 14.sp) },
                     icon = {
@@ -72,14 +74,92 @@ class ComposeNavigationActivity : ComponentActivity() {
                         )
                     },
                     selectedContentColor = Color.White,
-                    unselectedContentColor = Color.White.copy(0.2f),
-                    selected = currentRoute == item,
+                    unselectedContentColor = Color.White.copy(0.4f),
+                    selected = (selectedItem == item.routeName),
                     onClick = {
-//                        currentRoute = item
-                        Log.e("onclick", "item:${item.routeName}")
+                        selectedItem = item.routeName
+                        navController.navigate(item.routeName) {
+                            navController.graph.startDestinationRoute?.let { route ->
+                                popUpTo(route) {
+                                    saveState = true
+                                }
+                            }
+                            // Avoid multiple copies of the same destination when
+                            // reselect the same item
+                            launchSingleTop = true
+                            // Restore state when reselecting a previously selected item
+                            restoreState = true
+                        }
                     }
                 )
             }
         }
     }
+
+    @Composable
+    private fun ContentPage(navController: NavHostController) {
+        NavHost(navController = navController, startDestination = NavigationRoute.HOME.routeName) {
+            composable(NavigationRoute.HOME.routeName) {
+                ContentHome()
+                navController.currentDestination?.route = NavigationRoute.HOME.routeName
+            }
+
+            composable(NavigationRoute.CONTACT.routeName) {
+                ContentContact()
+                navController.currentDestination?.route = NavigationRoute.CONTACT.routeName
+            }
+
+            composable(NavigationRoute.MESSAGE.routeName) {
+                ContentMessage(navController)
+                navController.currentDestination?.route = NavigationRoute.MESSAGE.routeName
+            }
+
+            //navigate to define and get params
+            composable("messageDetail/{id}", arguments = listOf(
+                navArgument("id") { type = NavType.IntType }
+            )) { navBackStackEntry ->
+                ContentMessageDetail(navBackStackEntry.arguments?.getInt("id"))
+            }
+
+            //navigate fot deep link
+            val uri = "https://www.example.com"
+            composable(
+                "profile?id={id}",
+                deepLinks = listOf(navDeepLink { uriPattern = "$uri/{id}" })
+            ) { backStackEntry ->
+                ContentMessageDetail(backStackEntry.arguments?.getInt("id"))
+            }
+        }
+    }
+
+    @Composable
+    private fun ContentHome() {
+        Text(text = "Home")
+    }
+
+    @Composable
+    private fun ContentContact() {
+        Text(text = "Contact")
+    }
+
+    @Composable
+    private fun ContentMessage(navController: NavHostController) {
+        Column {
+            Text(text = "Message")
+            Button(onClick = {
+                //navigate with params
+                navController.navigate("messageDetail/1002") {
+                    popUpTo(NavigationRoute.HOME.routeName)
+                }
+            }) {
+                Text(text = "Click to nav MessageDetail")
+            }
+        }
+    }
+
+    @Composable
+    private fun ContentMessageDetail(msgId: Int?) {
+        Text(text = "This is Message Detail.ID is:$msgId")
+    }
+
 }
