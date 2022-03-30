@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -62,8 +64,8 @@ fun FrontLayer(tabSelected: ComposeTabs) {
 
 @Composable
 fun BackLayer() {
-    Column {
-        repeat(20){
+    Column(modifier = Modifier.fillMaxSize().verticalScroll(state = rememberScrollState())) {
+        repeat(20) {
             Text(text = "hello", modifier = Modifier.padding(10.dp))
         }
     }
