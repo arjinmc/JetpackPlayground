@@ -115,7 +115,6 @@
     <string name="compose_tab_layout">Tab Layout</string>
     <string name="compose_scrollable_tab_row">ScrollableTabRow</string>
     <string name="compose_view_pager">Pager(ViewPager)</string>
-    <string name="compose_pure_compose_architecture">Pure Compose Architecture</string>
 
     <array name="range_slider_values" >
         <item>25</item>
