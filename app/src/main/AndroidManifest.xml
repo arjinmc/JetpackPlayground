@@ -90,7 +90,8 @@
         <activity android:name=".ui.compose.basic.ComposeUseViewActivity"/>
         <activity android:name=".ui.compose.basic.ComposeThemeActivity"/>
         <activity android:name=".ui.compose.basic.ComposeCanvasActivity"/>
-
+        <activity android:name=".ui.compose.basic.ComposeAnimationActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeConstrainLayoutActivity"/>
 
     </application>
 

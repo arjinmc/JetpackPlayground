@@ -150,6 +150,16 @@ class ComposeActivity : BasicActivity() {
                     getContext(),
                     ComposeCanvasActivity::class.java
                 )
+
+                R.string.compose_animation -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeAnimationActivity::class.java
+                )
+
+                R.string.compose_constrain_layout -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeConstrainLayoutActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter
