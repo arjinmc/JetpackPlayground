@@ -132,6 +132,15 @@ class ComposeActivity : BasicActivity() {
                     ComposeViewPagerActivity::class.java
                 )
 
+                R.string.compose_use_view -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeUseViewActivity::class.java
+                )
+
+                R.string.compose_view_use_compose -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeViewUseComposeActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter

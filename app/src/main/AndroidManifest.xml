@@ -86,6 +86,8 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.compose.basic.ComposeViewUseComposeActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeUseViewActivity"/>
 
     </application>
 
