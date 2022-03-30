@@ -145,6 +145,11 @@ class ComposeActivity : BasicActivity() {
                     getContext(),
                     ComposeThemeActivity::class.java
                 )
+
+                R.string.compose_canvas -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeCanvasActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter
