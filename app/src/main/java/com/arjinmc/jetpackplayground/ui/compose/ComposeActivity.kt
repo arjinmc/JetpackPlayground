@@ -35,6 +35,7 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_theme,
         R.string.compose_canvas,
         R.string.compose_animation,
+        R.string.compose_gesture,
         R.string.compose_use_view,
         R.string.compose_view_use_compose,
         R.string.compose_drawer_menu,
@@ -159,6 +160,11 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_constrain_layout -> IntentUtil.startActivity(
                     getContext(),
                     ComposeConstrainLayoutActivity::class.java
+                )
+
+                R.string.compose_gesture-> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeGestureActivity::class.java
                 )
             }
         }

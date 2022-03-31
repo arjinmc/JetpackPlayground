@@ -115,6 +115,7 @@
     <string name="compose_tab_layout">Tab Layout</string>
     <string name="compose_scrollable_tab_row">ScrollableTabRow</string>
     <string name="compose_view_pager">Pager(ViewPager)</string>
+    <string name="compose_gesture">Gesture</string>
     <string name="compose_custom_layout">Custom Layout Composable</string>
 
     <array name="range_slider_values" >
