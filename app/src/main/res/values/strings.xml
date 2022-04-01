@@ -117,6 +117,7 @@
     <string name="compose_view_pager">Pager(ViewPager)</string>
     <string name="compose_gesture">Gesture</string>
     <string name="compose_custom_layout">Custom Layout Composable</string>
+    <string name="compose_adaptive">Adaptive Layout</string>
 
     <array name="range_slider_values" >
         <item>25</item>

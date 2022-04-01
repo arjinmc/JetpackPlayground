@@ -42,7 +42,9 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_navigation,
         R.string.compose_tab_layout,
         R.string.compose_scrollable_tab_row,
-        R.string.compose_view_pager
+        R.string.compose_view_pager,
+        R.string.compose_custom_layout,
+        R.string.compose_adaptive,
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -165,6 +167,16 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_gesture-> IntentUtil.startActivity(
                     getContext(),
                     ComposeGestureActivity::class.java
+                )
+
+                R.string.compose_custom_layout-> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeCustomLayoutActivity::class.java
+                )
+
+                R.string.compose_adaptive-> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeAdaptiveActivity::class.java
                 )
             }
         }

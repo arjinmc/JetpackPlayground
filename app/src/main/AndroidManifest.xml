@@ -93,6 +93,8 @@
         <activity android:name=".ui.compose.basic.ComposeAnimationActivity"/>
         <activity android:name=".ui.compose.basic.ComposeConstrainLayoutActivity"/>
         <activity android:name=".ui.compose.basic.ComposeGestureActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeCustomLayoutActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeAdaptiveActivity"/>
 
     </application>
 
