@@ -38,7 +38,6 @@ import com.arjinmc.jetpackplayground.util.ToastUtil
  * Created by Eminem Lo on 3/7/22
  * email: arjinmc@hotmail.com
  */
-@Preview
 @Composable
 fun ComposeBasicPage(context: Context, onLeftClick: () -> Unit?) {
     Scaffold {
