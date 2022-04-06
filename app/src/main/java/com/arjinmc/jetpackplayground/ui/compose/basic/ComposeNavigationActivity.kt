@@ -2,7 +2,9 @@ package com.arjinmc.jetpackplayground.ui.compose.basic
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -94,6 +96,13 @@ class ComposeNavigationActivity : ComponentActivity() {
                     }
                 )
             }
+        }
+
+
+        //equal onKeyDown ==back
+        BackHandler() {
+            Log.e("BackHandler", "back")
+            finish()
         }
     }
 
