@@ -95,6 +95,7 @@
         <activity android:name=".ui.compose.basic.ComposeGestureActivity"/>
         <activity android:name=".ui.compose.basic.ComposeCustomLayoutActivity"/>
         <activity android:name=".ui.compose.basic.ComposeAdaptiveActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeDragDropActivity"/>
 
     </application>
 

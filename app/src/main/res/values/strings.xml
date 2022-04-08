@@ -118,6 +118,7 @@
     <string name="compose_gesture">Gesture</string>
     <string name="compose_custom_layout">Custom Layout Composable</string>
     <string name="compose_adaptive">Adaptive Layout</string>
+    <string name="compose_drag_n_drop">Drag and Drop</string>
 
     <array name="range_slider_values" >
         <item>25</item>

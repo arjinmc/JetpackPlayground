@@ -36,6 +36,7 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_canvas,
         R.string.compose_animation,
         R.string.compose_gesture,
+        R.string.compose_drag_n_drop,
         R.string.compose_use_view,
         R.string.compose_view_use_compose,
         R.string.compose_drawer_menu,
@@ -177,6 +178,11 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_adaptive-> IntentUtil.startActivity(
                     getContext(),
                     ComposeAdaptiveActivity::class.java
+                )
+
+                R.string.compose_drag_n_drop-> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeDragDropActivity::class.java
                 )
             }
         }
