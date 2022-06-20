@@ -46,6 +46,7 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_view_pager,
         R.string.compose_custom_layout,
         R.string.compose_adaptive,
+        R.string.compose_permission
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -165,24 +166,29 @@ class ComposeActivity : BasicActivity() {
                     ComposeConstrainLayoutActivity::class.java
                 )
 
-                R.string.compose_gesture-> IntentUtil.startActivity(
+                R.string.compose_gesture -> IntentUtil.startActivity(
                     getContext(),
                     ComposeGestureActivity::class.java
                 )
 
-                R.string.compose_custom_layout-> IntentUtil.startActivity(
+                R.string.compose_custom_layout -> IntentUtil.startActivity(
                     getContext(),
                     ComposeCustomLayoutActivity::class.java
                 )
 
-                R.string.compose_adaptive-> IntentUtil.startActivity(
+                R.string.compose_adaptive -> IntentUtil.startActivity(
                     getContext(),
                     ComposeAdaptiveActivity::class.java
                 )
 
-                R.string.compose_drag_n_drop-> IntentUtil.startActivity(
+                R.string.compose_drag_n_drop -> IntentUtil.startActivity(
                     getContext(),
                     ComposeDragDropActivity::class.java
+                )
+
+                R.string.compose_permission -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposePermissionActivity::class.java
                 )
             }
         }

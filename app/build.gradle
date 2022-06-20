@@ -123,6 +123,8 @@ dependencies {
     implementation "com.google.accompanist:accompanist-insets:$accompanistVersion"
     //google accompanist pager as view pager
     implementation "com.google.accompanist:accompanist-pager:0.20.0"
+    //google accompanist permission
+    implementation "com.google.accompanist:accompanist-permissions:0.24.1-alpha"
     //constrain layout
     implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
 
