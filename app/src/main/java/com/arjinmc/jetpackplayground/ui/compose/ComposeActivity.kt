@@ -46,7 +46,9 @@ class ComposeActivity : BasicActivity() {
         R.string.compose_view_pager,
         R.string.compose_custom_layout,
         R.string.compose_adaptive,
-        R.string.compose_permission
+        R.string.compose_permission,
+        R.string.compose_bottom_sheet_scaffold,
+        R.string.compose_modal_bottom_sheet_layout
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -189,6 +191,15 @@ class ComposeActivity : BasicActivity() {
                 R.string.compose_permission -> IntentUtil.startActivity(
                     getContext(),
                     ComposePermissionActivity::class.java
+                )
+
+                R.string.compose_bottom_sheet_scaffold -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeBottomSheetScaffoldActivity::class.java
+                )
+                R.string.compose_modal_bottom_sheet_layout -> IntentUtil.startActivity(
+                    getContext(),
+                    ComposeModalBottomSheetLayoutActivity::class.java
                 )
             }
         }

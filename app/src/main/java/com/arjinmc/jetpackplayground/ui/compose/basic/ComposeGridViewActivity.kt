@@ -10,9 +10,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -187,9 +186,9 @@ fun GridViewPage(context: Context, onLeftClick: () -> Unit?, listData: List<Comp
             onLeftClick = onLeftClick
         )
 
-        LazyVerticalGrid(cells = GridCells.Fixed(3)) {
-            items(listData) { data ->
-                Image(painter = rememberImagePainter(data = data.url, builder = {
+        LazyVerticalGrid(columns = GridCells.Fixed(3)) {
+            items(listData.size) { index ->
+                Image(painter = rememberImagePainter(data = listData[index].url, builder = {
                     //change to gray color
                     transformations(GrayscaleTransformation())
                 }),
@@ -201,7 +200,7 @@ fun GridViewPage(context: Context, onLeftClick: () -> Unit?, listData: List<Comp
                         .clickable {
                             ToastUtil.showShort(
                                 context = context,
-                                msg = "Click: ${data.name}"
+                                msg = "Click: ${listData[index].name}"
                             )
                         })
 

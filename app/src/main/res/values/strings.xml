@@ -120,6 +120,8 @@
     <string name="compose_adaptive">Adaptive Layout</string>
     <string name="compose_drag_n_drop">Drag and Drop</string>
     <string name="compose_permission">Permission Request</string>
+    <string name="compose_bottom_sheet_scaffold">BottomSheetScaffold</string>
+    <string name="compose_modal_bottom_sheet_layout">ModalBottomSheetLayout</string>
 
     <array name="range_slider_values" >
         <item>25</item>

@@ -113,7 +113,7 @@ fun ScrollableTabLayout(
                         modifier = Modifier.align(Alignment.Center),
                         color = Color.White,
                         text = title.uppercase(
-                            ConfigurationCompat.getLocales(LocalConfiguration.current)[0]
+                            ConfigurationCompat.getLocales(LocalConfiguration.current)[0]!!
                         )
                     )
                 }

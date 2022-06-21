@@ -98,6 +98,8 @@
         <activity android:name=".ui.compose.basic.ComposeAdaptiveActivity"/>
         <activity android:name=".ui.compose.basic.ComposeDragDropActivity"/>
         <activity android:name=".ui.compose.basic.ComposePermissionActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeBottomSheetScaffoldActivity"/>
+        <activity android:name=".ui.compose.basic.ComposeModalBottomSheetLayoutActivity"/>
 
     </application>
 
