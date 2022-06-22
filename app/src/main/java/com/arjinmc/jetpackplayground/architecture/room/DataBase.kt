@@ -23,10 +23,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 //    }
 //            exprotSchema = true
 //)
-@Database(entities = [RoomDataBean::class], version = 1)
+@Database(entities = [RoomDataBean::class,RoomDataForeignDataBean::class], version = 1)
 abstract class DataBase : RoomDatabase() {
 
     abstract fun dataDao(): RoomDataDao
+    abstract fun dataForeignDao(): RoomDataForeignDao
 
     companion object {
         private val DB_NAME = "Room.db"

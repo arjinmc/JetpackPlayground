@@ -80,6 +80,7 @@
 
     <string name="room_default">Original</string>
     <string name="room_rxjava">RxJava</string>
+    <string name="room_foreign">Foreign Key</string>
 
     <string name="constrain_layout_basic">Basic</string>
     <string name="constrain_layout_always_at_the_right">Always at the right</string>

@@ -30,6 +30,7 @@
 
         <activity android:name=".architecture.room.RoomActivity" />
         <activity android:name=".architecture.room.RoomOriginalActivity" />
+        <activity android:name=".architecture.room.RoomForeignActivity"/>
 
         <activity android:name=".architecture.ViewBindingActivity" />
         <activity android:name=".architecture.DataStoreActivity" />

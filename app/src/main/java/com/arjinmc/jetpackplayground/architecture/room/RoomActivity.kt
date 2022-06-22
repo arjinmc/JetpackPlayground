@@ -24,6 +24,7 @@ class RoomActivity : BasicActivity() {
     private val mOptions = mutableListOf(
         R.string.room_default,
         R.string.room_rxjava,
+        R.string.room_foreign
     )
 
     private lateinit var mAdapter: RecyclerViewAdapter<Int>
@@ -75,6 +76,11 @@ class RoomActivity : BasicActivity() {
 //                    getContext(),
 //                    RoomDefaultActivity::class.java
 //                )
+
+                R.string.room_foreign -> IntentUtil.startActivity(
+                    getContext(),
+                    RoomForeignActivity::class.java
+                )
             }
         }
         binding.rvOptions.adapter = mAdapter

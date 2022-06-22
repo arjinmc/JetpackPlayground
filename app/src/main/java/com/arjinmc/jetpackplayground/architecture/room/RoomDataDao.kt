@@ -1,6 +1,7 @@
 package com.arjinmc.jetpackplayground.architecture.room
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 /**
  * Created by Eminem Lo on 12/7/21
@@ -11,7 +12,7 @@ import androidx.room.*
 interface RoomDataDao {
 
     @Query("SELECT * FROM room_data")
-    fun getList(): MutableList<RoomDataBean>
+    fun getList(): Flow<List<RoomDataBean>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun add(roomDataBean: RoomDataBean)

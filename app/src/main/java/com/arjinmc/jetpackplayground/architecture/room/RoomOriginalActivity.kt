@@ -4,6 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewAdapter
 import com.arjinmc.expandrecyclerview.adapter.RecyclerViewSingleTypeProcessor
@@ -13,6 +16,7 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActRoomBinding
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -25,7 +29,7 @@ class RoomOriginalActivity : BasicActivity() {
 
     private var mOptionType: OptionType? = null
     private lateinit var mDataAdapter: RecyclerViewAdapter<RoomDataBean>
-    private lateinit var mDataList: MutableList<RoomDataBean>
+    private lateinit var mDataList: LiveData<List<RoomDataBean>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,10 +79,10 @@ class RoomOriginalActivity : BasicActivity() {
 
     override fun initData() {
         setTitle(R.string.room_default)
-        mDataList = mutableListOf()
+        getDataList()
         mDataAdapter = RecyclerViewAdapter(
             getContext(),
-            mDataList,
+            mDataList.value,
             R.layout.item_room_list,
             object : RecyclerViewSingleTypeProcessor<RoomDataBean>() {
                 override fun onBindViewHolder(
@@ -97,7 +101,9 @@ class RoomOriginalActivity : BasicActivity() {
                 }
             })
         binding.rvData.adapter = mDataAdapter
-        getDataList()
+        mDataList.observe(this) {
+            mDataAdapter.notifyDataChanged(it)
+        }
 
         binding.rbAdd.isChecked = true
         switchOption(OptionType.ADD)
@@ -137,15 +143,11 @@ class RoomOriginalActivity : BasicActivity() {
     }
 
     private fun getDataList() {
-        Thread {
-            run {
-                mDataList.clear()
-                mDataList.addAll(DataBase.getInstance(getContext()).dataDao().getList())
-                runOnUiThread {
-                    mDataAdapter.notifyDataChanged(mDataList)
-                }
-            }
-        }.start()
+
+        lifecycleScope.launch {
+            mDataList = DataBase.getInstance(getContext()).dataDao().getList().asLiveData()
+        }
+
     }
 
     private fun switchOption(optionType: OptionType) {
