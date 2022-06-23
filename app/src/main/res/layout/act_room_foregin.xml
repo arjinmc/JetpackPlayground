@@ -25,14 +25,17 @@
             android:id="@+id/et_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="content" />
+            android:hint="content"
+            android:imeOptions="actionNext"
+            android:maxLines="1" />
 
         <EditText
             android:id="@+id/et_data_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="dataId"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLines="1" />
 
         <Button
             android:id="@+id/btn_add"
@@ -43,6 +46,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/block_1"
             android:padding="10dp"
             android:text="Result" />
 

@@ -17,6 +17,7 @@ import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
 /**
  * Created by Eminem Lo on 12/9/21
  * email: arjinmc@hotmail.com
+ * site: https://developer.android.com/training/data-storage/room
  */
 class RoomActivity : BasicActivity() {
 

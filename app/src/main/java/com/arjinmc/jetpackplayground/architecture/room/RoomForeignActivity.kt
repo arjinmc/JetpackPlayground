@@ -2,7 +2,7 @@ package com.arjinmc.jetpackplayground.architecture.room
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
@@ -16,7 +16,6 @@ import com.arjinmc.jetpackplayground.R
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.databinding.ActRoomForeginBinding
 import com.arjinmc.recyclerviewdecoration.RecyclerViewLinearItemDecoration
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -31,6 +30,9 @@ class RoomForeignActivity : BasicActivity() {
     private lateinit var mDataAdapter: RecyclerViewAdapter<RoomDataBean>
     private lateinit var mDataList: LiveData<List<RoomDataBean>>
 
+    private lateinit var mDataForeignAdapter: RecyclerViewAdapter<RoomDataForeignDataBean>
+    private lateinit var mDataForeignList: LiveData<MutableList<RoomDataForeignDataBean>>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActRoomForeginBinding.inflate(layoutInflater)
@@ -39,7 +41,6 @@ class RoomForeignActivity : BasicActivity() {
     }
 
     override fun initView() {
-
 
         RecyclerViewStyleHelper.toLinearLayout(binding.rvDataList, RecyclerView.VERTICAL)
         RecyclerViewStyleHelper.toLinearLayout(binding.rvResult, RecyclerView.VERTICAL)
@@ -57,18 +58,18 @@ class RoomForeignActivity : BasicActivity() {
 
         binding.btnAdd.setOnClickListener {
             val content = binding.etContent.text.toString()
-            val dataId = binding.etDataId.text.toString().toLong()
-            if (content.isNullOrBlank()) {
+            val dataId = binding.etDataId.text.toString()
+            if (content.isNullOrBlank() || dataId.isNullOrBlank()) {
                 return@setOnClickListener
             }
 
             val dataBean = RoomDataForeignDataBean()
             dataBean.content = content
-            dataBean.dataId = dataId
+            dataBean.dataId = dataId.toLong()
 
-            CoroutineScope(Dispatchers.IO).launch {
+            lifecycleScope.launch(Dispatchers.IO) {
                 DataBase.getInstance(getContext()).dataForeignDao().add(dataBean)
-                getDataList()
+                getForeignDataList()
             }
 
         }
@@ -76,6 +77,12 @@ class RoomForeignActivity : BasicActivity() {
 
     override fun initData() {
 
+        initDataAdapter()
+        initDataForeignAdapter()
+
+    }
+
+    private fun initDataAdapter() {
         mDataList = DataBase.getInstance(getContext()).dataDao().getList().asLiveData()
         mDataAdapter = RecyclerViewAdapter(
             getContext(),
@@ -99,15 +106,54 @@ class RoomForeignActivity : BasicActivity() {
             })
         binding.rvDataList.adapter = mDataAdapter
         mDataList.observe(this) {
-            if (it.isNullOrEmpty()) {
-                Log.e("change", "empty")
-            }
             mDataAdapter.notifyDataChanged(it)
+        }
+    }
+
+    private fun initDataForeignAdapter() {
+        getForeignDataList()
+
+        mDataForeignAdapter = RecyclerViewAdapter(
+            getContext(),
+            mDataForeignList.value,
+            R.layout.item_room_data_foreign,
+            object : RecyclerViewSingleTypeProcessor<RoomDataForeignDataBean>() {
+                override fun onBindViewHolder(
+                    holder: RecyclerViewViewHolder?,
+                    position: Int,
+                    item: RoomDataForeignDataBean
+                ) {
+                    val tvId = holder?.getView<TextView>(R.id.tv_id)
+                    val tvContent = holder?.getView<TextView>(R.id.tv_content)
+                    val tvForeignContent = holder?.getView<TextView>(R.id.tv_foreign_content)
+
+                    val btnDel = holder?.getView<Button>(R.id.btn_delete)
+
+                    tvId?.text = "ID:${item.id}"
+                    tvContent?.text = "Content:${item.content}"
+                    tvForeignContent?.text = "ForeignContent:${item.foreignContent}"
+
+                    btnDel?.setOnClickListener {
+                        deleteForeignData(item)
+                    }
+                }
+            })
+
+        binding.rvResult.adapter = mDataForeignAdapter
+        mDataForeignList.observe(this) {
+            mDataForeignAdapter.notifyDataChanged(it)
         }
 
     }
 
-    private fun getDataList() {
+    private fun getForeignDataList() {
+        mDataForeignList =
+            DataBase.getInstance(getContext()).dataForeignDao().getList().asLiveData()
+    }
 
+    private fun deleteForeignData(dataForeignDataBean: RoomDataForeignDataBean) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            DataBase.getInstance(getContext()).dataForeignDao().delete(dataForeignDataBean.id!!)
+        }
     }
 }

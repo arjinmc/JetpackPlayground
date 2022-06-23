@@ -1,9 +1,6 @@
 package com.arjinmc.jetpackplayground.architecture.room
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 /**
  * Created by Eminem Lo on 6/22/22
@@ -27,4 +24,6 @@ class RoomDataForeignDataBean {
     var content: String? = null
 
     var dataId: Long? = null
+
+    var foreignContent: String? = null
 }
