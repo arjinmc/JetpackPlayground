@@ -19,6 +19,7 @@ import com.arjinmc.jetpackplayground.architecture.viewmodel.ViewModelActivity
 import com.arjinmc.jetpackplayground.basic.BasicActivity
 import com.arjinmc.jetpackplayground.material.BottomAppBarActivity
 import com.arjinmc.jetpackplayground.material.RangeSliderActivity
+import com.arjinmc.jetpackplayground.material.drawable.DrawableActivity
 import com.arjinmc.jetpackplayground.material.textinputlayout.TextInputLayoutActivity
 import com.arjinmc.jetpackplayground.ui.SlidingPaneLayoutActivity
 import com.arjinmc.jetpackplayground.ui.compose.ComposeActivity
@@ -112,6 +113,7 @@ class MainActivity : BasicActivity() {
             getString(R.string.material_bottom_app_bar) -> startActivity(BottomAppBarActivity::class.java)
             getString(R.string.ui_sliding_pane_layout) -> startActivity(SlidingPaneLayoutActivity::class.java)
             getString(R.string.ui_compose) -> startActivity(ComposeActivity::class.java)
+            getString(R.string.material_drawable) -> startActivity(DrawableActivity::class.java)
         }
     }
 

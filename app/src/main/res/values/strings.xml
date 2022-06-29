@@ -36,6 +36,7 @@
     <string name="material_range_slider">RangeSlider</string>
     <string name="material_text_input_layout">TextInputLayout</string>
     <string name="material_bottom_app_bar">BottomAppBar</string>
+    <string name="material_drawable">Drawable</string>
 
     <string-array name="options">
         <item>@string/architecture</item>
@@ -73,6 +74,7 @@
         <item>@string/material_range_slider</item>
         <item>@string/material_text_input_layout</item>
         <item>@string/material_bottom_app_bar</item>
+        <item>@string/material_drawable</item>
 
     </string-array>
 
